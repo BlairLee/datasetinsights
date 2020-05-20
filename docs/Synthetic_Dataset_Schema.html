@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Synthetic Dataset Schema &mdash; thea 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="data.simulation" href="data.simulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> thea
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data.html">data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Synthetic Dataset Schema</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#components">Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#capture">capture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sequence-step-and-timestamp">sequence, step and timestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capture-ego">capture.ego</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capture-sensor">capture.sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capture-annotation">capture.annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-annotation-files">Example annotation files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capture-annotation-values">capture.annotation.values</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#metrics">metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#egos-json">egos.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensors-json">sensors.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#annotation-definitions-json">annotation_definitions.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metric-definitions-json">metric_definitions.json</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#schema-versioning">schema versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example">example</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">thea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Synthetic Dataset Schema</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Synthetic_Dataset_Schema.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="synthetic-dataset-schema">
+<h1>Synthetic Dataset Schema<a class="headerlink" href="#synthetic-dataset-schema" title="Permalink to this headline">¶</a></h1>
+<p>Synthetic datasets generated by the Perception package are captured in JSON.
+This document describes the schema used to store the data.
+This schema provides a generic structure for simulation output which can be easily consumed to show statistics or train machine learning models.
+Synthetic datasets are composed of sensor captures, annotations, and metrics e.g. images and 2d bounding box labels.
+This data comes in various forms and might be captured by different sensors and annotation mechanisms.
+Multiple sensors may be producing captures at different frequencies.
+The dataset organizes all of the data into a single set of JSON files.</p>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>It should include captured sensor data and annotations in one well-defined format.
+This allows us to maintain a contract between the Perception package and the dataset consumers (e.g. Statistics and ML Modeling…)</p></li>
+<li><p>It should maintain relationships between captured data and annotations that were taken by the same sensor at the same time.
+It should also maintain relationships between consecutive captures for time-related perception tasks (e.g. object tracking).</p></li>
+<li><p>It should support streaming data, since the data will be created on the fly during the simulation from multiple processes or cloud instances.</p></li>
+<li><p>It should be able to easily support new types of sensors and annotations.</p></li>
+<li><p>It assumes the synthetic dataset are captured in a directory structure, but does not make assumptions about transmission of storage of the dataset on a particular database management system.</p></li>
+</ul>
+</div>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>simulation</strong>: one or more executions of a Unity player build, potentially with different parameterization.</p></li>
+<li><p><strong>capture</strong>: a full rendering process of a Unity sensor which saved the rendered result to data files e.g.
+(PNG, <a class="reference external" href="https://www.online-convert.com/file-format/pcd">pcd</a>, etc).</p></li>
+<li><p><strong>sequence</strong>: a time-ordered series of captures generated by a simulation.</p></li>
+<li><p><strong>annotation</strong>: data (e.g. bounding boxes or semantic segmentation) recorded that is used to describe a particular capture at the same timestamp.
+A capture might include multiple types of annotations.</p></li>
+<li><p><strong>step</strong>: id for data-producing frames in the simulation.</p></li>
+<li><p><strong>ego</strong>: a frame of reference for a collection of sensors (camera/LIDAR/radar) attached to it.
+For example, for a robot with two cameras attached, the robot would be the ego containing the two sensors.</p></li>
+<li><p><strong>label</strong>: a string token (e.g. car, human.adult, etc.) that represents a semantic type, or class.
+One GameObject might have multiple labels used for different annotation purposes.
+For more on adding labels to GameObjects, see <a class="reference external" href="https://github.com/Unity-Technologies/com.unity.perception/blob/master/com.unity.perception/Documentation~/GroundTruth-Labeling">labeling</a>.</p></li>
+<li><p><strong>coordinate systems</strong>: there are three coordinate systems used in the schema</p>
+<ul>
+<li><p><strong>global coordinate system</strong>: coordinate with respect to the global origin in Unity.</p></li>
+<li><p><strong>ego coordinate system</strong>: coordinate with respect to an ego object.
+Typically, this refers to an object moving in the Unity scene.</p></li>
+<li><p><strong>sensor coordinate system</strong>: coordinate with respect to a sensor.
+This is useful for ML model training for a single sensor, which can be transformed from a global coordinate system and ego coordinate system.
+Raw value of object pose using the sensor coordinate system is rarely recorded in simulation.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="design">
+<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+<p>The schema is based on the <a class="reference external" href="https://www.nuscenes.org/data-format">nuScenes data format</a>.
+The main difference between this schema and nuScenes is that we use <strong>document based schema design</strong> instead of <strong>relational database schema design</strong>.
+This means that instead of requiring multiple id-based “joins” to explore the data, data is nested and sometimes duplicated for ease of consumption.</p>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image alt text" src="_images/image_0.png" /></p>
+<div class="section" id="capture">
+<h3>capture<a class="headerlink" href="#capture" title="Permalink to this headline">¶</a></h3>
+<p>A capture record contains the relationship between a captured file, a collection of annotations, and extra metadata that describes the state of the sensor.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">capture</span> <span class="p">{</span>
+  <span class="nb">id</span><span class="p">:</span>                <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">capture</span><span class="o">.</span>
+  <span class="n">sequence_id</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">sequence</span><span class="o">.</span>
+  <span class="n">step</span><span class="p">:</span>              <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">The</span> <span class="n">index</span> <span class="n">of</span> <span class="n">capture</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">sequence</span><span class="o">.</span> <span class="n">This</span> <span class="n">field</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">order</span> <span class="n">of</span> <span class="n">captures</span> <span class="n">within</span> <span class="n">a</span> <span class="n">sequence</span><span class="o">.</span> 
+  <span class="n">timestamp</span><span class="p">:</span>         <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Timestamp</span> <span class="ow">in</span> <span class="n">milliseconds</span> <span class="n">since</span> <span class="n">the</span> <span class="n">sequence</span> <span class="n">started</span><span class="o">.</span>
+  <span class="n">sensor</span><span class="p">:</span>            <span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Attributes</span> <span class="n">of</span> <span class="n">the</span> <span class="n">sensor</span><span class="o">.</span> <span class="n">see</span> <span class="n">below</span><span class="o">.</span>
+  <span class="n">ego</span><span class="p">:</span>               <span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Ego</span> <span class="n">pose</span> <span class="n">of</span> <span class="n">this</span> <span class="n">sample</span><span class="o">.</span> <span class="n">See</span> <span class="n">below</span><span class="o">.</span>
+  <span class="n">filename</span><span class="p">:</span>          <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">A</span> <span class="n">single</span> <span class="n">file</span> <span class="n">that</span> <span class="n">stores</span> <span class="n">sensor</span> <span class="n">captured</span> <span class="n">data</span><span class="o">.</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">camera_000</span><span class="o">.</span><span class="n">png</span><span class="p">,</span> <span class="n">points_123</span><span class="o">.</span><span class="n">pcd</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span>
+  <span class="nb">format</span><span class="p">:</span>            <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">The</span> <span class="nb">format</span> <span class="n">of</span> <span class="n">the</span> <span class="n">sensor</span> <span class="n">captured</span> <span class="n">file</span><span class="o">.</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">png</span><span class="p">,</span> <span class="n">pcd</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span>
+  <span class="n">annotations</span><span class="p">:</span>       <span class="p">[</span><span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;</span><span class="p">,</span><span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">List</span> <span class="n">of</span> <span class="n">the</span> <span class="n">annotations</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">capture</span><span class="o">.</span> <span class="n">See</span> <span class="n">below</span><span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="sequence-step-and-timestamp">
+<h4>sequence, step and timestamp<a class="headerlink" href="#sequence-step-and-timestamp" title="Permalink to this headline">¶</a></h4>
+<p>In some use cases, two consecutive captures might not be related in time during simulation.
+For example, if we generate randomly placed objects in a scene for X steps of simulation.
+In this case, sequence, step and timestamp are irrelevant for the captured data.
+We can add a default value to the sequence, step and timestamp for these types of captures.</p>
+<p>In cases where we need to maintain time order relationship between captures (e.g. a sequence of camera capture in a 10 second video) and <a class="reference external" href="#metrics">metrics</a>, we need to add a sequence, step and timestamp to maintain the time ordered relationship of captures.
+Sequence represents the collection of any time ordered captures and annotations.
+Timestamps refer to the simulation wall clock in milliseconds since the sequence started.
+Steps are integer values which increase when a capture or metric event is triggered.
+We cannot use timestamps to synchronize between two different events because timestamps are floats and therefore make poor indices.
+Instead, we use a “step” counter which make it easy to associate metrics and captures that occur at the same time.
+Below is an illustration of how captures, metrics, timestamps and steps are synchronized.</p>
+<p><img alt="image alt text" src="_images/captures_steps_timestamps.png" /></p>
+<p>Since each sensor might trigger captures at different frequencies, at the same timestamp we might contain 0 to N captures, where N is the total number of sensors included in this scene.
+If two sensors are captured at the same timestamp, they should share the same sequence, step and timestamp value.</p>
+<p>Physical camera sensors require some time to finish exposure.
+Physical LIDAR sensor requires some time to finish one 360 scan.
+How do we define the timestamp of the sample in simulation?
+Following the nuScene sensor <a class="reference external" href="https://www.nuscenes.org/data-collection">synchronization</a> strategy, we define a reference line from ego origin to the ego’s “forward” traveling direction.
+The timestamp of the LIDAR scan is the time when the full rotation of the current LIDAR frame is achieved.
+A full rotation is defined as the 360 sweep between two consecutive times passing the reference line.
+The timestamp of the camera is the exposure trigger time in simulation.</p>
+</div>
+<div class="section" id="capture-ego">
+<h4>capture.ego<a class="headerlink" href="#capture-ego" title="Permalink to this headline">¶</a></h4>
+<p>An ego record stores the ego status data when a sample is created.
+It includes translation, rotation, velocity and acceleration (optional) of the ego.
+The pose is with respect to the <strong>global coordinate system</strong> of a Unity scene.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ego</span> <span class="p">{</span>
+  <span class="n">ego_id</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">pointing</span> <span class="n">to</span> <span class="n">ego</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>
+  <span class="n">translation</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Position</span> <span class="ow">in</span> <span class="n">meters</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="k">with</span> <span class="n">respect</span> <span class="n">to</span> <span class="n">the</span> <span class="k">global</span> <span class="n">coordinate</span> <span class="n">system</span><span class="o">.</span>
+  <span class="n">rotation</span><span class="p">:</span>     <span class="o">&lt;</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Orientation</span> <span class="k">as</span> <span class="n">quaternion</span><span class="p">:</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span>
+  <span class="n">velocity</span><span class="p">:</span>     <span class="o">&lt;</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Velocity</span> <span class="ow">in</span> <span class="n">meters</span> <span class="n">per</span> <span class="n">second</span> <span class="k">as</span> <span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span><span class="p">,</span> <span class="n">v_z</span><span class="o">.</span>
+  <span class="n">acceleration</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">Acceleration</span> <span class="ow">in</span> <span class="n">meters</span> <span class="n">per</span> <span class="n">second</span><span class="o">^</span><span class="mi">2</span> <span class="k">as</span> <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_z</span><span class="o">.</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capture-sensor">
+<h4>capture.sensor<a class="headerlink" href="#capture-sensor" title="Permalink to this headline">¶</a></h4>
+<p>A sensor record contains attributes of the sensor at the time of the capture.
+Different sensor modalities may contain additional keys (e.g. field of view FOV for camera, beam density for LIDAR).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor</span> <span class="p">{</span>
+  <span class="n">sensor_id</span><span class="p">:</span>        <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">pointing</span> <span class="n">to</span> <span class="n">sensor</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>
+  <span class="n">ego_id</span><span class="p">:</span>           <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">pointing</span> <span class="n">to</span> <span class="n">ego</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>
+  <span class="n">modality</span><span class="p">:</span>         <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="p">{</span><span class="n">camera</span><span class="p">,</span> <span class="n">lidar</span><span class="p">,</span> <span class="n">radar</span><span class="p">,</span> <span class="n">sonar</span><span class="p">,</span><span class="o">...</span><span class="p">}</span> <span class="o">--</span> <span class="n">Sensor</span> <span class="n">modality</span><span class="o">.</span>
+  <span class="n">translation</span><span class="p">:</span>      <span class="o">&lt;</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Position</span> <span class="ow">in</span> <span class="n">meters</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="k">with</span> <span class="n">respect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">ego</span> <span class="n">coordinate</span> <span class="n">system</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">typically</span> <span class="n">fixed</span> <span class="n">during</span> <span class="n">the</span> <span class="n">simulation</span><span class="p">,</span> <span class="n">but</span> <span class="n">we</span> <span class="n">can</span> <span class="n">allow</span> <span class="n">small</span> <span class="n">variation</span> <span class="k">for</span> <span class="n">domain</span> <span class="n">randomization</span><span class="o">.</span>
+  <span class="n">rotation</span><span class="p">:</span>         <span class="o">&lt;</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Orientation</span> <span class="k">as</span> <span class="n">quaternion</span><span class="p">:</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="k">with</span> <span class="n">respect</span> <span class="n">to</span> <span class="n">ego</span> <span class="n">coordinate</span> <span class="n">system</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">typically</span> <span class="n">fixed</span> <span class="n">during</span> <span class="n">the</span> <span class="n">simulation</span><span class="p">,</span> <span class="n">but</span> <span class="n">we</span> <span class="n">can</span> <span class="n">allow</span> <span class="n">small</span> <span class="n">variation</span> <span class="k">for</span> <span class="n">domain</span> <span class="n">randomization</span><span class="o">.</span>
+  <span class="n">camera_intrinsic</span><span class="p">:</span> <span class="o">&lt;</span><span class="mi">3</span><span class="n">x3</span> <span class="nb">float</span> <span class="n">matrix</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">Intrinsic</span> <span class="n">camera</span> <span class="n">calibration</span><span class="o">.</span> <span class="n">Empty</span> <span class="k">for</span> <span class="n">sensors</span> <span class="n">that</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">cameras</span><span class="o">.</span>
+  
+  <span class="c1"># add arbitrary optional key-value pairs for sensor attributes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>reference: <a class="reference external" href="https://www.mathworks.com/help/vision/ug/camera-calibration.html#bu0ni74">camera_intrinsic</a></p>
+</div>
+<div class="section" id="capture-annotation">
+<h4>capture.annotation<a class="headerlink" href="#capture-annotation" title="Permalink to this headline">¶</a></h4>
+<p>An annotation record contains the ground truth for a sensor either inline or in a separate file.
+A single capture may contain many annotations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">annotation</span> <span class="p">{</span>
+  <span class="nb">id</span><span class="p">:</span>                    <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">annotation</span><span class="o">.</span>
+  <span class="n">annotation_definition</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="n">an</span> <span class="n">annotation_definition</span><span class="o">.</span><span class="n">id</span><span class="o">.</span> <span class="n">see</span> <span class="n">below</span>
+  <span class="n">filename</span><span class="p">:</span>              <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">Path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">single</span> <span class="n">file</span> <span class="n">that</span> <span class="n">stores</span> <span class="n">annotations</span><span class="o">.</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">sementic_000</span><span class="o">.</span><span class="n">png</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span>
+  <span class="n">values</span><span class="p">:</span>                <span class="p">[</span><span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;</span><span class="p">,</span><span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">List</span> <span class="n">of</span> <span class="n">objects</span> <span class="n">that</span> <span class="n">store</span> <span class="n">annotation</span> <span class="n">data</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">polygon</span><span class="p">,</span> <span class="mi">2</span><span class="n">d</span> <span class="n">bounding</span> <span class="n">box</span><span class="p">,</span> <span class="mi">3</span><span class="n">d</span> <span class="n">bounding</span> <span class="n">box</span><span class="p">,</span> <span class="n">etc</span><span class="p">)</span><span class="o">.</span> <span class="n">The</span> <span class="n">data</span> <span class="n">should</span> <span class="n">be</span> <span class="n">processed</span> <span class="n">according</span> <span class="n">to</span> <span class="n">a</span> <span class="n">given</span> <span class="n">annotation_definition</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>  
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-annotation-files">
+<h4>Example annotation files<a class="headerlink" href="#example-annotation-files" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="semantic-segmentation-grayscale-image">
+<h5>semantic segmentation - grayscale image<a class="headerlink" href="#semantic-segmentation-grayscale-image" title="Permalink to this headline">¶</a></h5>
+<p>A grayscale PNG file that stores integer values (label pixel_value in <a class="reference external" href="#annotation-definitions.json">annotation spec</a> reference table, semantic segmentation) of the labeled object at each pixel.</p>
+<p><img alt="image alt text" src="_images/image_2.png" /></p>
+</div>
+</div>
+<div class="section" id="capture-annotation-values">
+<h4>capture.annotation.values<a class="headerlink" href="#capture-annotation-values" title="Permalink to this headline">¶</a></h4>
+<!-- Not yet implemented annotations
+##### instance segmentation - polygon
+
+A json object that stores collections of polygons. Each polygon record maps a tuple of (instance, label) to a list of 
+K pixel coordinates that forms a polygon. This object can be directly stored in annotation.values 
+
+```
+semantic_segmentation_polygon {
+  label_id:     <int> -- Integer identifier of the label
+  label_name:   <str> -- String identifier of the label
+  instance_id:  <str> -- UUID of the instance.
+  polygon:      [<int, int>,...] -- List of points in pixel coordinates of the outer edge. Connecting these points in order should create a polygon that identifies the object. 
+}
+```
+--><div class="section" id="d-bounding-box">
+<h5>2D bounding box<a class="headerlink" href="#d-bounding-box" title="Permalink to this headline">¶</a></h5>
+<p>Each bounding box record maps a tuple of (instance, label)
+to a set of 4 variables (x, y, width, height) that draws a bounding box.
+We follow the OpenCV 2D coordinate <a class="reference external" href="https://github.com/vvvv/VL.OpenCV/wiki/Coordinate-system-conversions-between-OpenCV,-DirectX-and-vvvv#opencv">system</a> where the origin (0,0), (x=0, y=0) is at the top left of the image.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bounding_box_2d</span> <span class="p">{</span>
+  <span class="n">label_id</span><span class="p">:</span>     <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Integer</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+  <span class="n">label_name</span><span class="p">:</span>   <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">String</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+  <span class="n">instance_id</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">instance</span><span class="o">.</span>
+  <span class="n">x</span><span class="p">:</span>            <span class="o">&lt;</span><span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">x</span> <span class="n">coordinate</span> <span class="n">of</span> <span class="n">the</span> <span class="n">upper</span> <span class="n">left</span> <span class="n">corner</span><span class="o">.</span>
+  <span class="n">y</span><span class="p">:</span>            <span class="o">&lt;</span><span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">y</span> <span class="n">coordinate</span> <span class="n">of</span> <span class="n">the</span> <span class="n">upper</span> <span class="n">left</span> <span class="n">corner</span><span class="o">.</span> 
+  <span class="n">width</span><span class="p">:</span>        <span class="o">&lt;</span><span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">number</span> <span class="n">of</span> <span class="n">pixels</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">x</span> <span class="n">direction</span>
+  <span class="n">height</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nb">float</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">number</span> <span class="n">of</span> <span class="n">pixels</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">y</span> <span class="n">direction</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- Not yet implemented annotations
+
+##### 3D bounding box
+
+A json file that stored collections of 3D bounding boxes. 
+Each bounding box record maps a tuple of (instance, label) to translation, size and rotation that draws a 3D bounding box, as well as velocity and acceleration (optional) of the 3D bounding box. 
+All location data is given with respect to the **sensor coordinate system**.
+
+```
+bounding_box_3d {
+  label_id:     <int> -- Integer identifier of the label
+  label_name:   <str> -- String identifier of the label
+  instance_id:  <str> -- UUID of the instance.
+  translation:  <float, float, float> -- 3d bounding box's center location in meters as center_x, center_y, center_z with respect to global coordinate system.
+  size:         <float, float, float> -- 3d bounding box size in meters as width, length, height.
+  rotation:     <float, float, float, float> -- 3d bounding box orientation as quaternion: w, x, y, z.
+  velocity:     <float, float, float>  -- 3d bounding box velocity in meters per second as v_x, v_y, v_z.
+  acceleration: <float, float, float> [optional] -- 3d bounding box acceleration in meters per second^2 as a_x, a_y, a_z.
+}
+```
+
+
+#### instances (V2, WIP)
+
+Although we don’t have a specific table that account for instances, it should be noted that instances should be checked against the following cases
+
+* Consider cases for object tracking
+
+* Consider cases not used for object tracking, so that instances do not need to be consistent across different captures/annotations. 
+How to support instance segmentation (maybe we need to use polygon instead of pixel color)
+
+* Stored in values of annotation and metric values
+ 
+##### instance segmentation file - grayscale image (V2)
+
+A grayscale PNG file that stores integer values of labeled instances at each pixel. 
+
+![image alt text](image_4.png)
+--></div>
+</div>
+</div>
+<div class="section" id="metrics">
+<h3>metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h3>
+<p>Metrics store extra metadata that can be used to describe a particular sequence, capture or annotation.
+Metric records are stored as an arbitrary number (M) of key-value pairs. For a sequence metric, capture_id, annotation_id and step should be null.
+For a capture metric, annotation_id can be null.
+For an annotation metric, all four columns of sequence_id, capture_id, annotation_id and step are not null.</p>
+<p>Metrics files might be generated in parallel from different simulation instances.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metric</span> <span class="p">{</span>
+  <span class="n">capture_id</span><span class="p">:</span>        <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="n">capture</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>
+  <span class="n">annotation_id</span><span class="p">:</span>     <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="n">annotation</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>
+  <span class="n">sequence_id</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="n">capture</span><span class="o">.</span><span class="n">sequence_id</span><span class="o">.</span>
+  <span class="n">step</span><span class="p">:</span>              <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="n">capture</span><span class="o">.</span><span class="n">step</span><span class="o">.</span>
+  <span class="n">metric_definition</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="n">metric_definition</span><span class="o">.</span><span class="n">id</span>
+  <span class="n">values</span><span class="p">:</span>            <span class="p">[</span><span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;</span><span class="p">,</span><span class="o">...</span><span class="p">]</span> <span class="o">--</span> <span class="n">List</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">metric</span> <span class="n">records</span> <span class="n">stored</span> <span class="k">as</span> <span class="n">json</span> <span class="n">objects</span><span class="o">.</span>  
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="definitions">
+<h3>definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<p>Ego, sensor, annotation, and metric definition tables are static during the simulation.
+This typically comes from the definition of the simulation and are generated during the simulation.</p>
+<div class="section" id="egos-json">
+<h4>egos.json<a class="headerlink" href="#egos-json" title="Permalink to this headline">¶</a></h4>
+<p>A json file containing a collection of egos. This file is an enumeration of all egos in this simulation.
+A specific object with sensors attached to it is a commonly used ego in a driving simulation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ego</span> <span class="p">{</span>
+  <span class="nb">id</span><span class="p">:</span>           <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">ego</span><span class="o">.</span>
+  <span class="n">description</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">Ego</span> <span class="n">instance</span> <span class="n">description</span><span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sensors-json">
+<h4>sensors.json<a class="headerlink" href="#sensors-json" title="Permalink to this headline">¶</a></h4>
+<p>A json file containing a collection of all sensors present in the simulation.
+Each sensor is assigned a unique UUID. Each is associated with an ego and stores the UUID of the ego as a foreign key.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor</span> <span class="p">{</span>
+  <span class="nb">id</span><span class="p">:</span>               <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">sensor</span><span class="o">.</span>
+  <span class="n">ego_id</span><span class="p">:</span>           <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Foreign</span> <span class="n">key</span> <span class="n">pointing</span> <span class="n">to</span> <span class="n">ego</span><span class="o">.</span><span class="n">id</span><span class="o">.</span>
+  <span class="n">modality</span><span class="p">:</span>         <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="p">{</span><span class="n">camera</span><span class="p">,</span> <span class="n">lidar</span><span class="p">,</span> <span class="n">radar</span><span class="p">,</span> <span class="n">sonar</span><span class="p">,</span><span class="o">...</span><span class="p">}</span> <span class="o">--</span> <span class="n">Sensor</span> <span class="n">modality</span><span class="o">.</span>
+  <span class="n">description</span><span class="p">:</span>      <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">Sensor</span> <span class="n">instance</span> <span class="n">description</span><span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="annotation-definitions-json">
+<h4>annotation_definitions.json<a class="headerlink" href="#annotation-definitions-json" title="Permalink to this headline">¶</a></h4>
+<p>A json file containing a collection of annotation specifications (annotation_definition).
+Each record describes a particular type of annotation and contains an annotation-specific specification describing how annotation data should be mapped back to labels or objects in the scene.</p>
+<p>Typically, the <code class="docutils literal notranslate"><span class="pre">spec</span></code> key describes all labels_id and label_name used by the annotation.
+Some special cases like semantic segmentation might assign additional values (e.g. pixel value) to record the mapping between label_id/label_name and pixel color in the annotated PNG files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">annotation_definition</span> <span class="p">{</span>
+  <span class="nb">id</span><span class="p">:</span>           <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Integer</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">annotation</span> <span class="n">definition</span><span class="o">.</span>
+  <span class="n">name</span><span class="p">:</span>         <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Human</span> <span class="n">readable</span> <span class="n">annotation</span> <span class="n">spec</span> <span class="n">name</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">sementic_segmentation</span><span class="p">,</span> <span class="n">instance_segmentation</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span> 
+  <span class="n">description</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">str</span><span class="p">,</span> <span class="n">optional</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Description</span> <span class="n">of</span> <span class="n">this</span> <span class="n">annotation</span> <span class="n">specifications</span><span class="o">.</span>
+  <span class="nb">format</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">The</span> <span class="nb">format</span> <span class="n">of</span> <span class="n">the</span> <span class="n">annotation</span> <span class="n">files</span><span class="o">.</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">png</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span>
+  <span class="n">spec</span><span class="p">:</span>         <span class="p">[</span><span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;...</span><span class="p">]</span> <span class="o">--</span> <span class="n">Format</span><span class="o">-</span><span class="n">specific</span> <span class="n">specification</span> <span class="k">for</span> <span class="n">the</span> <span class="n">annotation</span> <span class="n">values</span> <span class="p">(</span><span class="n">ex</span><span class="o">.</span> <span class="n">label</span><span class="o">-</span><span class="n">value</span> <span class="n">mappings</span> <span class="k">for</span> <span class="n">semantic</span> <span class="n">segmentation</span> <span class="n">images</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># semantic segmentation</span>
+<span class="n">annotation_definition</span><span class="o">.</span><span class="n">spec</span> <span class="p">{</span>        
+  <span class="n">label_id</span><span class="p">:</span>          <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Integer</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+  <span class="n">label_name</span><span class="p">:</span>        <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">String</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+  <span class="n">pixel_value</span><span class="p">:</span>       <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Grayscale</span> <span class="n">pixel</span> <span class="n">value</span>
+  <span class="n">color_pixel_value</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span><span class="p">]</span> <span class="o">--</span> <span class="n">Color</span> <span class="n">pixel</span> <span class="n">value</span>
+<span class="p">}</span>
+
+<span class="c1"># label enumeration spec, used for annotations like bounding box 2d. This might be a subset of all labels used in simulation.</span>
+<span class="n">annotation_definition</span><span class="o">.</span><span class="n">spec</span> <span class="p">{</span>
+  <span class="n">label_id</span><span class="p">:</span>    <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Integer</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+  <span class="n">label_name</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">String</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metric-definitions-json">
+<h4>metric_definitions.json<a class="headerlink" href="#metric-definitions-json" title="Permalink to this headline">¶</a></h4>
+<p>A json file that stores collections of metric specifications records (metric_definition).
+Each specification record describes a particular metric stored in <a class="reference external" href="#metrics">metrics</a> values.
+Each metric_definition record is assigned a unique identifier to a collection of specification records, which is stored as a list of key-value pairs.
+The design is very similar to <a class="reference external" href="#annotation-definitions-json">annotation_definitions</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metric_definition</span> <span class="p">{</span>
+  <span class="nb">id</span><span class="p">:</span>           <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Integer</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">metric</span> <span class="n">definition</span><span class="o">.</span>
+  <span class="n">name</span><span class="p">:</span>         <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Human</span> <span class="n">readable</span> <span class="n">metric</span> <span class="n">spec</span> <span class="n">name</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">object_count</span><span class="p">,</span> <span class="n">average</span> <span class="n">distance</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span> 
+  <span class="n">description</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">str</span><span class="p">,</span> <span class="n">optional</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Description</span> <span class="n">of</span> <span class="n">this</span> <span class="n">metric</span> <span class="n">specifications</span><span class="o">.</span>
+  <span class="n">spec</span><span class="p">:</span>         <span class="p">[</span><span class="o">&lt;</span><span class="n">obj</span><span class="o">&gt;...</span><span class="p">]</span> <span class="o">--</span> <span class="n">Format</span><span class="o">-</span><span class="n">specific</span> <span class="n">specification</span> <span class="k">for</span> <span class="n">the</span> <span class="n">metric</span> <span class="n">values</span>
+<span class="p">}</span>
+
+<span class="c1"># label enumeration spec, used to enumerate all labels. For example, this can be used for object count metrics.</span>
+<span class="n">metric_definition</span><span class="o">.</span><span class="n">spec</span> <span class="p">{</span>
+  <span class="n">label_id</span><span class="p">:</span>    <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">Integer</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+  <span class="n">label_name</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span> <span class="o">--</span> <span class="n">String</span> <span class="n">identifier</span> <span class="n">of</span> <span class="n">the</span> <span class="n">label</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="schema-versioning">
+<h3>schema versioning<a class="headerlink" href="#schema-versioning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The schema uses <a class="reference external" href="https://semver.org/">semantic versioning</a>.</p></li>
+<li><p>Version info is placed at root level of the json file that holds a collection of objects (e.g. captures.json,
+metrics.json, annotation_definitions.json,… ). All json files in a dataset will share the same version.
+It should change atomically across files if the version of the schema is updated.</p></li>
+<li><p>The version should only change when the Perception package changes (and even then, rarely).
+Defining new metric_definitions or annotation_definitions will not change the schema version since it does not involve any schema changes.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="example">
+<h2>example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>A mockup of synthetic dataset according to this schema can be found
+<a class="reference external" href="https://github.com/Unity-Technologies/com.unity.perception/tree/master/com.unity.perception/Documentation~/Schema/mock_data/simrun">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="data.simulation.html" class="btn btn-neutral float-left" title="data.simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Unity Technologies
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

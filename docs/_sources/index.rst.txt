@@ -1,0 +1,29 @@
+.. Thea documentation master file, created by
+   sphinx-quickstart on Mon Apr 27 17:25:16 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Thea's documentation!
+================================
+Thea is a repo for synthetic dataset insights maintained by Unity Technologies.
+This repo enables users to analyze the synthetic datasets that they have generated using the Perception SDK #todo add
+link to perception SDK for the for the `Unity game engine <https://unity.com/>`_ and, optionally, at scale using
+`Unity Simulations <https://unity.com/products/simulation>`_, by exposing the metrics collected when the dataset
+was created e.g. object count, label distribution, etc. To use our sample notebooks pull our docker image. #todo add link to docker image
+
+.. toctree::
+   :maxdepth: 5
+   :caption: Contents:
+
+
+   data
+   Synthetic_Dataset_Schema
+   :release: |release|
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

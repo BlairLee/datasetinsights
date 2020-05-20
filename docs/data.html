@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>data &mdash; thea 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="data.datasets" href="data.datasets.html" />
+    <link rel="prev" title="Welcome to Thea’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> thea
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.datasets.html">data.datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html">data.simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-data.bbox">data.bbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-data.loader">data.loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-data.transforms">data.transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">thea</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data">
+<h1>data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data.datasets.html">data.datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.datasets.html#module-data.datasets.base">data.datasets.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.datasets.html#module-data.datasets.statistics">data.datasets.statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.datasets.html#module-data.datasets.synthetic">data.datasets.synthetic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.simulation.html">data.simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.captures">data.simulation.captures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.download">data.simulation.download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.exceptions">data.simulation.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.metrics">data.simulation.metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.references">data.simulation.references</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.tables">data.simulation.tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html#module-data.simulation.validation">data.simulation.validation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="module-data.bbox">
+<span id="data-bbox"></span><h2>data.bbox<a class="headerlink" href="#module-data.bbox" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="data.bbox.BBox2D">
+<em class="property">class </em><code class="sig-prename descclassname">data.bbox.</code><code class="sig-name descname">BBox2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">score</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Canonical Representation of a 2D bounding box.</p>
+<dl class="py attribute">
+<dt id="data.bbox.BBox2D.label">
+<code class="sig-name descname">label</code><a class="headerlink" href="#data.bbox.BBox2D.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>string representation of the label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.bbox.BBox2D.x">
+<code class="sig-name descname">x</code><a class="headerlink" href="#data.bbox.BBox2D.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>x pixel coordinate of the upper left corner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.bbox.BBox2D.y">
+<code class="sig-name descname">y</code><a class="headerlink" href="#data.bbox.BBox2D.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>y pixel coordinate of the upper left corner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.bbox.BBox2D.w">
+<code class="sig-name descname">w</code><a class="headerlink" href="#data.bbox.BBox2D.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>width (number of pixels)of the bounding box.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.bbox.BBox2D.h">
+<code class="sig-name descname">h</code><a class="headerlink" href="#data.bbox.BBox2D.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>height (number of pixels) of the bounding box.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.bbox.BBox2D.score">
+<code class="sig-name descname">score</code><a class="headerlink" href="#data.bbox.BBox2D.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>detection confidence score. Default is set to score=1.
+if this is a ground truth bounding box.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<p>Here is an example about how to use this class.
+&gt;&gt;&gt; gt_bbox = BBox2D(label=’car’, x=2, y=6, w=2, h=4)
+&gt;&gt;&gt; gt_bbox
+“label=’car’<a href="#id1"><span class="problematic" id="id2">|</span></a>score=1.0|x=2.0|y=6.0|w=2.0|h=4.0”
+&gt;&gt;&gt; pred_bbox = BBox2D(label=’car’, x=2, y=5, w=2, h=4, score=0.79)
+&gt;&gt;&gt; pred_bbox.area
+8
+&gt;&gt;&gt; pred_bbox.intersect_with(gt_bbox)
+True
+&gt;&gt;&gt; pred_bbox.intersection(gt_bbox)
+6
+&gt;&gt;&gt; pred_bbox.union(gt_bbox)
+10
+&gt;&gt;&gt; pred_bbox.iou(gt_bbox)
+0.6</p>
+<dl class="py method">
+<dt id="data.bbox.BBox2D.area">
+<em class="property">property </em><code class="sig-name descname">area</code><a class="headerlink" href="#data.bbox.BBox2D.area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate area of this bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>width x height of the bound box</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox2D.intersect_with">
+<code class="sig-name descname">intersect_with</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox2D.intersect_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether this box intersects with other bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to check intersaction</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if two bounding boxes intersect, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox2D.intersection">
+<code class="sig-name descname">intersection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox2D.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the intersection area with other bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to calculate intersaction</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float of the intersection area for two bounding boxes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox2D.iou">
+<code class="sig-name descname">iou</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox2D.iou" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate intersaction over union area with other bounding box</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[egin{aligned}
+    IOU =\]</div>
+</div></blockquote>
+<dl>
+<dt>rac{intersection area}{union area}</dt><dd><blockquote>
+<div><p>end{aligned}</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Args:</dt><dd><p>other (BBox2D): other bounding box object to calculate iou</p>
+</dd>
+<dt>Returns:</dt><dd><p>float of the union area for two bounding boxes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox2D.union">
+<code class="sig-name descname">union</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">intersection_area</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox2D.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate union area with other bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to calculate union</p></li>
+<li><p><strong>intersection_area</strong> (<em>float</em>) – pre-calculated area of intersection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float of the union area for two bounding boxes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="data.bbox.BBox3d">
+<em class="property">class </em><code class="sig-prename descclassname">data.bbox.</code><code class="sig-name descname">BBox3d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">translation</span></em>, <em class="sig-param"><span class="n">size</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">sample_token</span></em>, <em class="sig-param"><span class="n">score</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">rotation</span><span class="p">:</span> <span class="n">pyquaternion.quaternion.Quaternion</span> <span class="o">=</span> <span class="default_value">Quaternion(1.0, 0.0, 0.0, 0.0)</span></em>, <em class="sig-param"><span class="n">velocity</span><span class="o">=</span><span class="default_value">nan, nan, nan</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for 3d bounding boxes which can either be predictions or
+ground-truths. This class is the primary representation in this repo of 3d
+bounding boxes and is based off of the Nuscenes style dataset.</p>
+<dl class="py method">
+<dt id="data.bbox.BBox3d.back_left_bottom_pt">
+<em class="property">property </em><code class="sig-name descname">back_left_bottom_pt</code><a class="headerlink" href="#data.bbox.BBox3d.back_left_bottom_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Back-left-bottom point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Returns</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.back_left_top_pt">
+<em class="property">property </em><code class="sig-name descname">back_left_top_pt</code><a class="headerlink" href="#data.bbox.BBox3d.back_left_top_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Back-left-top point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.back_right_bottom_pt">
+<em class="property">property </em><code class="sig-name descname">back_right_bottom_pt</code><a class="headerlink" href="#data.bbox.BBox3d.back_right_bottom_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Back-right-bottom point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.back_right_top_pt">
+<em class="property">property </em><code class="sig-name descname">back_right_top_pt</code><a class="headerlink" href="#data.bbox.BBox3d.back_right_top_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Back-right-top point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.front_left_bottom_pt">
+<em class="property">property </em><code class="sig-name descname">front_left_bottom_pt</code><a class="headerlink" href="#data.bbox.BBox3d.front_left_bottom_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Front-left-bottom point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.front_left_top_pt">
+<em class="property">property </em><code class="sig-name descname">front_left_top_pt</code><a class="headerlink" href="#data.bbox.BBox3d.front_left_top_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Front-left-top point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.front_right_bottom_pt">
+<em class="property">property </em><code class="sig-name descname">front_right_bottom_pt</code><a class="headerlink" href="#data.bbox.BBox3d.front_right_bottom_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Front-right-bottom point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.front_right_top_pt">
+<em class="property">property </em><code class="sig-name descname">front_right_top_pt</code><a class="headerlink" href="#data.bbox.BBox3d.front_right_top_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Front-right-top point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.bbox.BBox3d.p">
+<em class="property">property </em><code class="sig-name descname">p</code><a class="headerlink" href="#data.bbox.BBox3d.p" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>list of all 8 corners of the box beginning with the the bottom</dt><dd><p>four corners and then the top</p>
+</dd>
+</dl>
+<p>four corners, both in counterclockwise order (from birds eye view)
+beginning with the back-left corner</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Returns</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data.loader">
+<span id="data-loader"></span><h2>data.loader<a class="headerlink" href="#module-data.loader" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="data.loader.create_loader">
+<code class="sig-prename descclassname">data.loader.</code><code class="sig-name descname">create_loader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">dryrun</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">num_workers</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">collate_fn</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.loader.create_loader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create data loader from dataset</p>
+<p>Note: The data loader here is a pytorch data loader object which does not
+assume tensor_type to be pytorch tensor. We only require input dataset to
+support <cite>__getitem__</cite> and <cite>__len__</cite> mothod to iterate over items in
+the dataset.</p>
+<p>Since <cite>collate_fn</cite> method in <cite>torch.utils.data.DataLoader</cite> behave
+differently when automatic batching is on, we might need to override
+this method. If <cite>create_loader</cite> method became too complicated in order to
+support different estimators, we might expect different estimator to
+have their own create_loader method.</p>
+<p><a class="reference external" href="https://pytorch.org/docs/stable/data.html#working-with-collate-fn">https://pytorch.org/docs/stable/data.html#working-with-collate-fn</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference internal" href="data.datasets.html#data.datasets.base.Dataset" title="data.datasets.base.Dataset"><em>Dataset</em></a>) – dataset object derived from
+<cite>thea.data.datasets.Dataset</cite> class.</p></li>
+<li><p><strong>dryrun</strong> (<em>bool</em>) – indicator whether to use a very small subset of the
+dataset. This subset is useful to make sure we can quickly run
+estimator without loading the whole dataset. (default: False)</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – how many samples per batch to load (default: 1)</p></li>
+<li><p><strong>num_workers</strong> (<em>int</em>) – number of parallel workers used for data loader.
+Set to <cite>0</cite> to run on a single thread (instead of <cite>1</cite> which might
+introduce overhead). (default: 0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><cite>torch.utils.data.DataLoader</cite> object as data loader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-data.transforms">
+<span id="data-transforms"></span><h2>data.transforms<a class="headerlink" href="#module-data.transforms" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="data.transforms.Compose">
+<em class="property">class </em><code class="sig-prename descclassname">data.transforms.</code><code class="sig-name descname">Compose</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transforms</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.transforms.Compose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="data.transforms.RandomHorizontalFlip">
+<em class="property">class </em><code class="sig-prename descclassname">data.transforms.</code><code class="sig-name descname">RandomHorizontalFlip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flip_prob</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.transforms.RandomHorizontalFlip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Flip the image from top to bottom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flip_prob</strong> – the probability to flip the image</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="data.transforms.Resize">
+<em class="property">class </em><code class="sig-prename descclassname">data.transforms.</code><code class="sig-name descname">Resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img_size</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">target_size</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.transforms.Resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Resize the (image, target) to the given sizes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_size</strong> (<em>tuple</em><em> or </em><em>int</em>) – Desired output size. If size is a
+sequence like (h, w), output size will be matched to this. If size
+is an int, smaller edge of the image will be matched to this
+number. i.e, if height &gt; width, then image will be rescaled to
+(size * height / width, size)</p></li>
+<li><p><strong>target_size</strong> (<em>tuple</em><em> or </em><em>int</em>) – Desired output size. If size is a
+sequence like (h, w), output size will be matched to this. If size
+is an int, smaller edge of the image will be matched to this
+number. i.e, if height &gt; width, then image will be rescaled to
+(size * height / width, size)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-data"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data.datasets.html" class="btn btn-neutral float-right" title="data.datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Thea’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Unity Technologies
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

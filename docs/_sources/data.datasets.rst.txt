@@ -1,0 +1,34 @@
+data.datasets
+=============
+
+
+data.datasets.base
+------------------
+
+.. automodule:: data.datasets.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+data.datasets.statistics
+------------------------
+
+.. automodule:: data.datasets.statistics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+data.datasets.synthetic
+-----------------------
+
+.. automodule:: data.datasets.synthetic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+.. automodule:: data.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:

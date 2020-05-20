@@ -1,0 +1,41 @@
+data
+====
+
+
+.. toctree::
+   :maxdepth: 4
+
+   data.datasets
+   data.simulation
+
+
+data.bbox
+---------
+
+.. automodule:: data.bbox
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+data.loader
+-----------
+
+.. automodule:: data.loader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+data.transforms
+---------------
+
+.. automodule:: data.transforms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+.. automodule:: data
+   :members:
+   :undoc-members:
+   :show-inheritance:
