@@ -3,13 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Thea's documentation!
+Welcome to the Unity Dataset Insights documentation!
 ================================
 Thea is a repo for synthetic dataset insights maintained by Unity Technologies.
-This repo enables users to analyze the synthetic datasets that they have generated using the Perception SDK #todo add
-link to perception SDK for the for the `Unity game engine <https://unity.com/>`_ and, optionally, at scale using
+This repo enables users to analyze the synthetic datasets that they have generated using the `Perception SDK <https://github.com/Unity-Technologies/com.unity.perception>`_
+or the for the `Unity game engine <https://unity.com/>`_ and, optionally, at scale using
 `Unity Simulations <https://unity.com/products/simulation>`_, by exposing the metrics collected when the dataset
-was created e.g. object count, label distribution, etc. To use our sample notebooks pull our docker image. #todo add link to docker image
+was created e.g. object count, label distribution, etc. To use our sample notebooks pull our docker image
+unitytechnologies/datasetinsights
 
 .. toctree::
    :maxdepth: 5
