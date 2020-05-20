@@ -85,9 +85,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="data.html">data</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">data.datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#data-datasets-base">data.datasets.base</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-datasets-statistics">data.datasets.statistics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-datasets-synthetic">data.datasets.synthetic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-data.datasets.base">data.datasets.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-data.datasets.statistics">data.datasets.statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-data.datasets.synthetic">data.datasets.synthetic</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="data.simulation.html">data.simulation</a></li>
@@ -165,15 +165,293 @@
             
   <div class="section" id="data-datasets">
 <h1>data.datasets<a class="headerlink" href="#data-datasets" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="data-datasets-base">
-<h2>data.datasets.base<a class="headerlink" href="#data-datasets-base" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-data.datasets.base">
+<span id="data-datasets-base"></span><h2>data.datasets.base<a class="headerlink" href="#module-data.datasets.base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="data.datasets.base.Dataset">
+<em class="property">class </em><code class="sig-prename descclassname">data.datasets.base.</code><code class="sig-name descname">Dataset</code><a class="headerlink" href="#data.datasets.base.Dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract base class for datasets.</p>
+<dl class="py method">
+<dt id="data.datasets.base.Dataset.create">
+<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.base.Dataset.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance of the dataset subclass</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – unique identifier for a dataset subclass</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – parameters specific to each dataset subclass
+used to create a dataset instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an instance of the specified dataset subclass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.datasets.base.Dataset.download">
+<em class="property">abstract </em><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cloud_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.base.Dataset.download" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="data.datasets.base.Dataset.find">
+<em class="property">static </em><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.base.Dataset.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find Dataset subclass based on the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – unique identifier for a dataset subclass</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a label of the specified dataset subclass</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="data-datasets-statistics">
-<h2>data.datasets.statistics<a class="headerlink" href="#data-datasets-statistics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-data.datasets.statistics">
+<span id="data-datasets-statistics"></span><h2>data.datasets.statistics<a class="headerlink" href="#module-data.datasets.statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="data.datasets.statistics.RenderedObjectInfo">
+<em class="property">class </em><code class="sig-prename descclassname">data.datasets.statistics.</code><code class="sig-name descname">RenderedObjectInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span><span class="o">=</span><span class="default_value">'/data'</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em>, <em class="sig-param"><span class="n">def_id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Rendered Object Info in Captures</p>
+<p>This metric stores common object info captured by a sensor in the simulation
+environment. It can be used to calculate object statistics such as
+object count, object rotation and visible pixels.</p>
+<dl class="py attribute">
+<dt id="data.datasets.statistics.RenderedObjectInfo.raw_table">
+<code class="sig-name descname">raw_table</code><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.raw_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>rendered object info stored with a tidy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">pandas dataframe. Columns &quot;label_id&quot;, &quot;instance_id&quot;, &quot;visible_pixels&quot;,</code></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">&quot;capture_id, &quot;label_name&quot;.</code></dt>
+<dd></dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># set the data root path to where data was stored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;$HOME/data&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># use rendered object info definition id</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">definition_id</span> <span class="o">=</span> <span class="s2">&quot;659c6e36-f9f8-4dd6-9651-4a80e51eabc4&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">roinfo</span> <span class="o">=</span> <span class="n">RenderedObjectInfo</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">definition_id</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="data-datasets-synthetic">
-<h2>data.datasets.synthetic<a class="headerlink" href="#data-datasets-synthetic" title="Permalink to this headline">¶</a></h2>
+<p>total object count per label dataframe
+&gt;&gt;&gt; roinfo.total_counts()
+label_id label_name count</p>
+<blockquote>
+<div><p>1    object1    10
+2    object2    21</p>
+</div></blockquote>
+<p>object count per capture dataframe
+&gt;&gt;&gt; roinfo.per_capture_counts()
+capture_id  count</p>
+<blockquote>
+<div><p>qwerty     10
+asdfgh     21</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt id="data.datasets.statistics.RenderedObjectInfo.COUNT_COLUMN">
+<code class="sig-name descname">COUNT_COLUMN</code><em class="property"> = 'count'</em><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.COUNT_COLUMN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.statistics.RenderedObjectInfo.INDEX_COLUMN">
+<code class="sig-name descname">INDEX_COLUMN</code><em class="property"> = 'capture_id'</em><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.INDEX_COLUMN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.statistics.RenderedObjectInfo.LABEL">
+<code class="sig-name descname">LABEL</code><em class="property"> = 'label_id'</em><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.LABEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.statistics.RenderedObjectInfo.LABEL_READABLE">
+<code class="sig-name descname">LABEL_READABLE</code><em class="property"> = 'label_name'</em><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.LABEL_READABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.statistics.RenderedObjectInfo.VALUE_COLUMN">
+<code class="sig-name descname">VALUE_COLUMN</code><em class="property"> = 'values'</em><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.VALUE_COLUMN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="data.datasets.statistics.RenderedObjectInfo.num_captures">
+<code class="sig-name descname">num_captures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.num_captures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of captures</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Total number of captures</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.datasets.statistics.RenderedObjectInfo.per_capture_counts">
+<code class="sig-name descname">per_capture_counts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.per_capture_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate Object Counts Per Label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>Total object counts table.</dt><dd><p>Columns “capture_id”, “count”</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.datasets.statistics.RenderedObjectInfo.total_counts">
+<code class="sig-name descname">total_counts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.total_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate Total Object Counts Per Label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>Total object counts table.</dt><dd><p>Columns “label_id”, “label_name”, “count”</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="data.datasets.statistics.download">
+<code class="sig-prename descclassname">data.datasets.statistics.</code><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">manifest_file</span></em>, <em class="sig-param"><span class="n">use_cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.statistics.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download dataset for dataset statistics
+:param root: root directory where the dataset should be downloaded.
+:type root: str
+:param manifest_file: path to USim simulation manifest file.
+:type manifest_file: str
+:param use_cache: set to False to override already downloaded files
+:type use_cache: bool</p>
+<dl class="simple">
+<dt>Returns</dt><dd><p>str: root directory where the dataset is downloaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
+<div class="section" id="module-data.datasets.synthetic">
+<span id="data-datasets-synthetic"></span><h2>data.datasets.synthetic<a class="headerlink" href="#module-data.datasets.synthetic" title="Permalink to this headline">¶</a></h2>
+<p>Simulation Dataset Catalog</p>
+<dl class="py class">
+<dt id="data.datasets.synthetic.SynDetection2D">
+<em class="property">class </em><code class="sig-prename descclassname">data.datasets.synthetic.</code><code class="sig-name descname">SynDetection2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data_root</span><span class="o">=</span><span class="default_value">'/data'</span></em>, <em class="sig-param"><span class="n">split</span><span class="o">=</span><span class="default_value">'all'</span></em>, <em class="sig-param"><span class="n">transforms</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">manifest_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">run_execution_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">auth_token</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em>, <em class="sig-param"><span class="n">def_id</span><span class="o">=</span><span class="default_value">4</span></em>, <em class="sig-param"><span class="n">train_split_ratio</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">random_seed</span><span class="o">=</span><span class="default_value">47</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#data.datasets.base.Dataset" title="data.datasets.base.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">data.datasets.base.Dataset</span></code></a></p>
+<p>Synthetic dataset for 2D object detection.</p>
+<dl class="py attribute">
+<dt id="data.datasets.synthetic.SynDetection2D.root">
+<code class="sig-name descname">root</code><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D.root" title="Permalink to this definition">¶</a></dt>
+<dd><p>root directory of the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.synthetic.SynDetection2D.catalog">
+<code class="sig-name descname">catalog</code><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D.catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>catalog of all captures in this dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.synthetic.SynDetection2D.transforms">
+<code class="sig-name descname">transforms</code><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D.transforms" title="Permalink to this definition">¶</a></dt>
+<dd><p>callable transformation that applies to a pair of
+capture, annotation. Capture is the information captured by the
+sensor, in this case an image, and annotations, which in this
+dataset are 2d bounding box coordinates and labels.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.synthetic.SynDetection2D.split">
+<code class="sig-name descname">split</code><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>indicate split type of the dataset (train|val|test)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="data.datasets.synthetic.SynDetection2D.label_mappings">
+<code class="sig-name descname">label_mappings</code><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D.label_mappings" title="Permalink to this definition">¶</a></dt>
+<dd><p>a dict of {label_id: label_name} mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="data.datasets.synthetic.SynDetection2D.download">
+<code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">manifest_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.synthetic.SynDetection2D.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download captures of a given manifest file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>manifest_file</strong> (<em>str</em>) – path to a manifest file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="data.datasets.synthetic.read_bounding_box_2d">
+<code class="sig-prename descclassname">data.datasets.synthetic.</code><code class="sig-name descname">read_bounding_box_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">annotation</span></em>, <em class="sig-param"><span class="n">label_mappings</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.synthetic.read_bounding_box_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert dictionary representations of 2d bounding boxes into objects
+of the BBox2D class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>annotation</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – 2D bounding box annotation</p></li>
+<li><p><strong>label_mappings</strong> (<em>dict</em>) – a dict of {label_id: label_name} mapping</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of 2D bounding box objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-data.datasets"></span></div>
 </div>
 
 

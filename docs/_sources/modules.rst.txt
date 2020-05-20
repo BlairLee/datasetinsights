@@ -1,5 +1,5 @@
-datasetinsights
-===============
+thea
+====
 
 .. toctree::
    :maxdepth: 4
@@ -8,3 +8,4 @@ datasetinsights
    data
    scripts
    storage
+   visual
