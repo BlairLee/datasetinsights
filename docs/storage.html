@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>storage &mdash; thea 0.1.0 documentation</title>
+  <title>storage &mdash; datasetinsights 0.1.0 documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> thea
+            <a href="index.html" class="icon icon-home"> datasetinsights
           
 
           
@@ -97,7 +97,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">thea</a>
+          <a href="index.html">datasetinsights</a>
         
       </nav>
 
@@ -149,178 +149,8 @@
             
   <div class="section" id="storage">
 <h1>storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-storage.checkpoint">
-<span id="storage-checkpoint"></span><h2>storage.checkpoint<a class="headerlink" href="#module-storage.checkpoint" title="Permalink to this headline">¶</a></h2>
-<p>Save estimator checkpoints</p>
-<dl class="py class">
-<dt id="storage.checkpoint.DistributedEstimatorCheckpoint">
-<em class="property">class </em><code class="sig-prename descclassname">storage.checkpoint.</code><code class="sig-name descname">DistributedEstimatorCheckpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">is_master</span></em>, <em class="sig-param"><span class="n">estimator_checkpoint</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.DistributedEstimatorCheckpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt id="storage.checkpoint.DistributedEstimatorCheckpoint.load">
-<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">full_cloud_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.DistributedEstimatorCheckpoint.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="storage.checkpoint.DistributedEstimatorCheckpoint.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.DistributedEstimatorCheckpoint.save" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="storage.checkpoint.EstimatorCheckpoint">
-<em class="property">class </em><code class="sig-prename descclassname">storage.checkpoint.</code><code class="sig-name descname">EstimatorCheckpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dirname</span></em>, <em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'estimator'</span></em>, <em class="sig-param"><span class="n">create_dir</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.EstimatorCheckpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interact with estimator checkpoints</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dirname</strong> (<em>str</em>) – directory name of where checkpoint files are stored</p></li>
-<li><p><strong>prefix</strong> (<em>str</em>) – filename prefix of the checkpoint files</p></li>
-<li><p><strong>suffix</strong> (<em>str</em>) – filename suffix of the checkpoint files</p></li>
-<li><p><strong>create_dir</strong> (<em>bool</em>) – indicate whether to force create directoy if
-the specified dirname does not exist. Default: True</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="storage.checkpoint.EstimatorCheckpoint.dirname">
-<code class="sig-name descname">dirname</code><a class="headerlink" href="#storage.checkpoint.EstimatorCheckpoint.dirname" title="Permalink to this definition">¶</a></dt>
-<dd><p>directory name of where checkpoint files are stored</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="storage.checkpoint.EstimatorCheckpoint.prefix">
-<code class="sig-name descname">prefix</code><a class="headerlink" href="#storage.checkpoint.EstimatorCheckpoint.prefix" title="Permalink to this definition">¶</a></dt>
-<dd><p>filename prefix of the checkpoint files</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="storage.checkpoint.EstimatorCheckpoint.suffix">
-<code class="sig-name descname">suffix</code><a class="headerlink" href="#storage.checkpoint.EstimatorCheckpoint.suffix" title="Permalink to this definition">¶</a></dt>
-<dd><p>filename suffix of the checkpoint files</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="storage.checkpoint.EstimatorCheckpoint.load">
-<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.EstimatorCheckpoint.load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load estimator from checkpoint files</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>estimator</strong> (<em>thea.estimators.Estimator</em>) – thea estimator object.</p></li>
-<li><p><strong>path</strong> – full path to the checkpoint file</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="storage.checkpoint.EstimatorCheckpoint.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.EstimatorCheckpoint.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save estimator to checkpoint files.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>estimator</strong> (<em>thea.estimators.Estimator</em>) – thea estimator object.</p></li>
-<li><p><strong>epoch</strong> (<em>int</em>) – the current epoch number. Default: None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>full path to the saved checkpoint file</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="storage.checkpoint.GCSEstimatorCheckpoint">
-<em class="property">class </em><code class="sig-prename descclassname">storage.checkpoint.</code><code class="sig-name descname">GCSEstimatorCheckpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cloud_path</span></em>, <em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'estimator'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.GCSEstimatorCheckpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interact with estimator checkpoints on GCS</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cloud_path</strong> (<em>str</em>) – GCS cloud path (e.g. gs://bucket/path/to/directoy)</p></li>
-<li><p><strong>prefix</strong> (<em>str</em>) – filename prefix of the checkpoint files</p></li>
-<li><p><strong>suffix</strong> (<em>str</em>) – filename suffix of the checkpoint files</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="storage.checkpoint.GCSEstimatorCheckpoint.load">
-<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">full_cloud_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.GCSEstimatorCheckpoint.load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load estimator from checkpoint files on GCS</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>estimator</strong> (<em>thea.estimators.Estimator</em>) – thea estimator object.</p></li>
-<li><p><strong>path</strong> – full path to the checkpoint file</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="storage.checkpoint.GCSEstimatorCheckpoint.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.GCSEstimatorCheckpoint.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save estimator to checkpoint files on GCS</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>estimator</strong> (<em>thea.estimators.Estimator</em>) – thea estimator object.</p></li>
-<li><p><strong>epoch</strong> (<em>int</em>) – the current epoch number. Default: None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>full GCS cloud path to the saved checkpoint file</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="storage.checkpoint.checkpoint_file_on_gcs">
-<code class="sig-prename descclassname">storage.checkpoint.</code><code class="sig-name descname">checkpoint_file_on_gcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.checkpoint_file_on_gcs" title="Permalink to this definition">¶</a></dt>
-<dd><p>determine whether or not the checkpoint file to load an estimator is on
-gcs</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>config</strong> – </p>
-</dd>
-</dl>
-<p>Returns:</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="storage.checkpoint.create_checkpointer">
-<code class="sig-prename descclassname">storage.checkpoint.</code><code class="sig-name descname">create_checkpointer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">logdir</span></em>, <em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#storage.checkpoint.create_checkpointer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize the correct estimator checkpointer
-:param logdir: filepath to where to save/load local copy of estimator
-:param config:</p>
-<p>Returns (EstimatorCheckpoint): the correct estimator checkpoint for the
-config. The Estimator Checkpoint is responsible for saving and loading
-the estimator.</p>
-</dd></dl>
-
+<div class="section" id="storage-checkpoint">
+<h2>storage.checkpoint<a class="headerlink" href="#storage-checkpoint" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-storage.gcs">
 <span id="storage-gcs"></span><h2>storage.gcs<a class="headerlink" href="#module-storage.gcs" title="Permalink to this headline">¶</a></h2>
