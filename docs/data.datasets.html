@@ -81,7 +81,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Package Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="data.html">data</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">data.datasets</a><ul>
@@ -96,6 +96,9 @@
 <li class="toctree-l2"><a class="reference internal" href="data.html#module-data.transforms">data.transforms</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Additional docs:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
 </ul>
 
@@ -243,28 +246,24 @@ object count, object rotation and visible pixels.</p>
 <code class="sig-name descname">&quot;capture_id, &quot;label_name&quot;.</code></dt>
 <dd></dd></dl>
 
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># set the data root path to where data was stored</span>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># set the data root path to where data was stored</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;$HOME/data&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># use rendered object info definition id</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">definition_id</span> <span class="o">=</span> <span class="s2">&quot;659c6e36-f9f8-4dd6-9651-4a80e51eabc4&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">roinfo</span> <span class="o">=</span> <span class="n">RenderedObjectInfo</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">definition_id</span><span class="p">)</span>
+<span class="go">#total object count per label dataframe</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">roinfo</span><span class="o">.</span><span class="n">total_counts</span><span class="p">()</span>
+<span class="go">label_id label_name count</span>
+<span class="go">       1    object1    10</span>
+<span class="go">       2    object2    21</span>
+<span class="go">#object count per capture dataframe</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">roinfo</span><span class="o">.</span><span class="n">per_capture_counts</span><span class="p">()</span>
+<span class="go">capture_id  count</span>
+<span class="go">    qwerty     10</span>
+<span class="go">    asdfgh     21</span>
 </pre></div>
 </div>
-<p>total object count per label dataframe
-&gt;&gt;&gt; roinfo.total_counts()
-label_id label_name count</p>
-<blockquote>
-<div><p>1    object1    10
-2    object2    21</p>
-</div></blockquote>
-<p>object count per capture dataframe
-&gt;&gt;&gt; roinfo.per_capture_counts()
-capture_id  count</p>
-<blockquote>
-<div><p>qwerty     10
-asdfgh     21</p>
-</div></blockquote>
 <dl class="py attribute">
 <dt id="data.datasets.statistics.RenderedObjectInfo.COUNT_COLUMN">
 <code class="sig-name descname">COUNT_COLUMN</code><em class="property"> = 'count'</em><a class="headerlink" href="#data.datasets.statistics.RenderedObjectInfo.COUNT_COLUMN" title="Permalink to this definition">¶</a></dt>
@@ -346,8 +345,8 @@ asdfgh     21</p>
 <dt id="data.datasets.statistics.download">
 <code class="sig-prename descclassname">data.datasets.statistics.</code><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">manifest_file</span></em>, <em class="sig-param"><span class="n">use_cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.datasets.statistics.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download dataset for dataset statistics
-:param root: root directory where the dataset should be downloaded.
-:type root: str
+:param data_root: root directory where the dataset should be downloaded.
+:type data_root: str
 :param manifest_file: path to USim simulation manifest file.
 :type manifest_file: str
 :param use_cache: set to False to override already downloaded files

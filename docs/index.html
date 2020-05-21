@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Synthetic Dataset Schema" href="Synthetic_Dataset_Schema.html" /> 
+    <link rel="next" title="data" href="data.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,7 +80,11 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Package Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional docs:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
 </ul>
@@ -151,51 +155,82 @@
 <h1>Welcome to the Unity Dataset Insights documentation!<a class="headerlink" href="#welcome-to-the-unity-dataset-insights-documentation" title="Permalink to this headline">¶</a></h1>
 <p>Unity Dataset Insights is a python package for understanding synthetic datasets.
 This package enables users to analyze synthetic datasets generated using the <a class="reference external" href="https://github.com/Unity-Technologies/com.unity.perception">Perception SDK</a>
-for the for the <a class="reference external" href="https://unity.com/">Unity game engine</a> and, optionally, at scale using
+for the <a class="reference external" href="https://unity.com/">Unity game engine</a> and, optionally, at scale using
 <a class="reference external" href="https://unity.com/products/simulation">Unity Simulations</a>. Dataset Insights exposes the metrics collected when the dataset
 was created e.g. object count, label distribution, etc. To use our sample notebooks pull our docker image
-<a class="reference external" href="https://hub.docker.com/r/unitytechnologies/datasetinsights">unitytechnologies/datasetinsights</a> .</p>
+<a class="reference external" href="https://hub.docker.com/r/unitytechnologies/datasetinsights">unitytechnologies/datasetinsights</a></p>
 </div>
-<div class="section" id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://github.com/Unity-Technologies/SynthDet/blob/master/docs/Readme.md">Getting Started Guide</a></p>
+<div class="section" id="workflow">
+<h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download-from-unity-simulations">
+<h2>Download From Unity Simulations<a class="headerlink" href="#download-from-unity-simulations" title="Permalink to this headline">¶</a></h2>
+<p>If you used <a class="reference external" href="https://unity.com/products/simulation">Unity Simulations</a> to generate your dataset,
+then you can use <a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.download.download_manifest" title="datasetinsights.data.simulation.download.download_manifest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">download_manifest()</span></code></a> method and the <a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.download.Downloader" title="datasetinsights.data.simulation.download.Downloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Downloader</span></code></a> object to download your data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">manifest_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_volume</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">run_execution_id</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+<span class="n">download_manifest</span><span class="p">(</span><span class="n">run_execution_id</span><span class="p">,</span> <span class="n">manifest_file</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
+<span class="n">dl</span> <span class="o">=</span> <span class="n">Downloader</span><span class="p">(</span><span class="n">manifest_file</span><span class="p">,</span> <span class="n">data_root</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first line of code defines your local path for the manifest file.
+The second line downloads the manifest from Unity Simulations to the local path.
+The third line, initializes the <a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.download.Downloader" title="datasetinsights.data.simulation.download.Downloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Downloader</span></code></a> object.
+Once initialized, the downloader class can <a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.download.Downloader.download_all" title="datasetinsights.data.simulation.download.Downloader.download_all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">download_all()</span></code></a>,
+to download all files associated with that dataset. Or use any of the following methods:
+<a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.download.Downloader.download_captures" title="datasetinsights.data.simulation.download.Downloader.download_captures"><code class="xref py py-meth docutils literal notranslate"><span class="pre">download_captures()</span></code></a>,
+<a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.download.Downloader.download_metrics" title="datasetinsights.data.simulation.download.Downloader.download_metrics"><code class="xref py py-meth docutils literal notranslate"><span class="pre">download_metrics()</span></code></a>,
+to download the <a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a> or <a class="reference internal" href="Synthetic_Dataset_Schema.html#metrics"><span class="std std-ref">metrics</span></a> respectively.</p>
+</div>
+<div class="section" id="load-dataset-metadata">
+<h2>Load Dataset Metadata<a class="headerlink" href="#load-dataset-metadata" title="Permalink to this headline">¶</a></h2>
+<p>Once the dataset’s metadata is downloaded, it can be loaded for statistics using the <a class="reference internal" href="datasetinsights.data.simulation.html#module-datasetinsights.data.simulation" title="datasetinsights.data.simulation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">simulation</span></code></a> module.
+Annotation and metric definitions are loaded into pandas dataframes using <a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.references.AnnotationDefinitions" title="datasetinsights.data.simulation.references.AnnotationDefinitions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnotationDefinitions</span></code></a> and <a class="reference internal" href="datasetinsights.data.simulation.html#datasetinsights.data.simulation.references.MetricDefinitions" title="datasetinsights.data.simulation.references.MetricDefinitions"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetricDefinitions</span></code></a> respectively.
+These definition ids correspond to the different kinds of metrics and annotations that are present in the dataset.
+You can then use these ids to filter the statistics to correspond to the specific metric or annotation you are interested in.
+For instance, for the <a class="reference external" href="https://github.com/Unity-Technologies/SynthDet">SynthDet</a> dataset, you can access the dataframe corresponding to foreground placement
+by filtering on that id.
+The code snippet below shows how you could filter the metrics to just display information about the foreground object placement and then filter again to just show the rotations of the foreground objects present in the SynthDet dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">foreground_placement_info_definition_id</span> <span class="o">=</span> <span class="s2">&quot;061e08cc-4428-4926-9933-a6732524b52b&quot;</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;x_rot&quot;</span><span class="p">,</span> <span class="s2">&quot;y_rot&quot;</span><span class="p">,</span> <span class="s2">&quot;z_rot&quot;</span><span class="p">)</span>
+<span class="n">filtered_metrics</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">filter_metrics</span><span class="p">(</span><span class="n">foreground_placement_info_definition_id</span><span class="p">)</span>
+<span class="n">rotation_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filtered_metrics</span><span class="p">[</span><span class="s2">&quot;rotation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="synthdet-quick-start">
+<h1>SynthDet Quick Start<a class="headerlink" href="#synthdet-quick-start" title="Permalink to this headline">¶</a></h1>
+<p>To get started using a sample project to generate synthetic data and to explore your dataset using this package please follow the  <a class="reference external" href="https://github.com/Unity-Technologies/SynthDet/blob/master/docs/Readme.md">SynthDet Started Guide</a></p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">Package Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Synthetic_Dataset_Schema.html#goals">Goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Synthetic_Dataset_Schema.html#terminology">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Synthetic_Dataset_Schema.html#design">Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Synthetic_Dataset_Schema.html#components">Components</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Synthetic_Dataset_Schema.html#capture">capture</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#sequence-step-and-timestamp">sequence, step and timestamp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#capture-ego">capture.ego</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#capture-sensor">capture.sensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#capture-annotation">capture.annotation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#example-annotation-files">Example annotation files</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="Synthetic_Dataset_Schema.html#semantic-segmentation-grayscale-image">semantic segmentation - grayscale image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.datasets.html">data.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.datasets.html#module-data.datasets.base">data.datasets.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.datasets.html#module-data.datasets.statistics">data.datasets.statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.datasets.html#module-data.datasets.synthetic">data.datasets.synthetic</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#capture-annotation-values">capture.annotation.values</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="Synthetic_Dataset_Schema.html#d-bounding-box">2D bounding box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.simulation.html">data.simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.captures">data.simulation.captures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.download">data.simulation.download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.exceptions">data.simulation.exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.metrics">data.simulation.metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.references">data.simulation.references</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.tables">data.simulation.tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.simulation.html#module-data.simulation.validation">data.simulation.validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#module-data.bbox">data.bbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#module-data.loader">data.loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#module-data.transforms">data.transforms</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="Synthetic_Dataset_Schema.html#metrics">metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Synthetic_Dataset_Schema.html#definitions">definitions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#egos-json">egos.json</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#sensors-json">sensors.json</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#annotation-definitions-json">annotation_definitions.json</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Synthetic_Dataset_Schema.html#metric-definitions-json">metric_definitions.json</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="Synthetic_Dataset_Schema.html#schema-versioning">schema versioning</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Synthetic_Dataset_Schema.html#example">example</a></li>
-</ul>
-</li>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Additional docs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
 </ul>
 </div>
 </div>
@@ -216,7 +251,7 @@ was created e.g. object count, label distribution, etc. To use our sample notebo
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Synthetic_Dataset_Schema.html" class="btn btn-neutral float-right" title="Synthetic Dataset Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="data.html" class="btn btn-neutral float-right" title="data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

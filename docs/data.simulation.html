@@ -81,7 +81,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Package Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="data.html">data</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data.datasets.html">data.datasets</a></li>
@@ -100,6 +100,9 @@
 <li class="toctree-l2"><a class="reference internal" href="data.html#module-data.transforms">data.transforms</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Additional docs:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
 </ul>
 
@@ -179,12 +182,10 @@
 <p>Load captures table</p>
 <p>A capture record stores the relationship between a captured file,
 a collection of annotations, and extra metadata that describes this
-capture. For more detail, see schema design here:
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#heading=h.ya72jmn8a5uz
-.. rubric:: Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">captures</span> <span class="o">=</span> <span class="n">Captures</span><span class="p">(</span><span class="n">data_root</span><span class="o">=</span><span class="s2">&quot;/data&quot;</span><span class="p">)</span>
+capture. For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a></p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">captures</span> <span class="o">=</span> <span class="n">Captures</span><span class="p">(</span><span class="n">data_root</span><span class="o">=</span><span class="s2">&quot;/data&quot;</span><span class="p">)</span>
 <span class="go">#captures class automatically loads the captures (e.g. lidar scan,</span>
 <span class="go">image, depth map) and the annotations (e.g semantic segmentation</span>
 <span class="go">labels, bounding boxes, etc.)</span>
@@ -230,15 +231,13 @@ capture. For more detail, see schema design here:
 <dt id="data.simulation.captures.Captures.filter">
 <code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">def_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.captures.Captures.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get captures and annotations filtered by annotation definition id
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/
-edit#bookmark=id.ueuu07ww8otx
-:param def_id: annotation definition id used to filter results
-:type def_id: int</p>
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p>A pandas dataframe with captures and annotations
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>def_id</strong> (<em>int</em>) – annotation definition id used to filter results</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>A pandas dataframe with captures and annotations
 Columns: ‘id’ (capture id), ‘sequence_id’, ‘step’, ‘timestamp’,
 ‘sensor’, ‘ego’,</p>
 <blockquote>
@@ -247,24 +246,105 @@ Columns: ‘id’ (capture id), ‘sequence_id’, ‘step’, ‘timestamp’,
 </div></blockquote>
 </p>
 </dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#data.simulation.exceptions.DefinitionIDError" title="data.simulation.exceptions.DefinitionIDError"><strong>DefinitionIDError</strong></a> – Raised if none of the annotation records in the
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#data.simulation.exceptions.DefinitionIDError" title="data.simulation.exceptions.DefinitionIDError"><strong>DefinitionIDError</strong></a> – Raised if none of the annotation records in the
     combined annotation and captures dataframe match the def_id
     specified as a parameter.</p>
 </dd>
 </dl>
-<p>Example Returned Dataframe:</p>
-<p>id(str)   sequence_id(str)      step(int)       timestamp (float)         cdc8..    295c…           300         4.9</p>
-<p>sensor (dict)         {‘sensor_id’: ‘da873b…’, ‘ego_id’: ‘44ca9…’, ‘modality’: ‘camera’,
-‘translation’: [0.0, 0.0, 0.0], ‘rotation’: [0.0, 0.0, 0.0, 1.0],
-‘scale’: 0.344577253}</p>
-<p>ego (dict)          {‘ego_id’: ‘44ca9…’, ‘translation’: [0.0, 0.0, -20.0], ‘rotation’:
-[0.0, 0.0, 0.0, 1.0], ‘velocity’: None, ‘acceleration’: None}</p>
-<p>filename(str)        format(str)    annotation.id (str)         RGB3/asd.png         PNG            ace0</p>
-<p>annotation.annotation_definition(str)        6716c…</p>
-<p>annotation.values
-[{‘label_id’: 34, ‘label_name’: ‘snack_chips_pringles’,
-…’height’: 118.0}, {‘label_id’: 35, ‘… ‘height’: 91.0}…]</p>
+<p>Example Returned Dataframed (first row):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 33%" />
+<col style="width: 18%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>sequence_id(str)</p></td>
+<td><p>step(int)</p></td>
+<td><p>timestamp (float)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>295c…</p></td>
+<td><p>300</p></td>
+<td><p>4.9</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>sensor (dict)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>{‘sensor_id’: ‘dDDa873b…’, ‘ego_id’: ‘44ca9’,
+‘modality’: ‘camera’,
+‘translation’: [0.0, 0.0, 0.0],
+‘rotation’: [0.0, 0.0, 0.0, 1.0],
+‘scale’: 0.344577253}</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>ego (dict)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>{‘ego_id’: ‘44ca9…’,
+‘translation’: [0.0, 0.0, -20.0],
+‘rotation’:[0.0, 0.0, 0.0, 1.0],
+‘velocity’: None, ‘acceleration’: None}</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 26%" />
+<col style="width: 22%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>filename(str)</p></td>
+<td><p>format(str)</p></td>
+<td><p>annotation.id (str)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>RGB3/asd.png</p></td>
+<td><p>PNG</p></td>
+<td><p>ace0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>annotation.values</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>[{‘label_id’: 34,
+‘label_name’: ‘snack_chips_pringles’,
+…’height’: 118.0},
+{‘label_id’: 35, ‘… ‘height’: 91.0}…]</p></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -277,8 +357,8 @@ Columns: ‘id’ (capture id), ‘sequence_id’, ‘step’, ‘timestamp’,
 <em class="property">class </em><code class="sig-prename descclassname">data.simulation.download.</code><code class="sig-name descname">Downloader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">manifest_file</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">data_root</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">use_cache</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.download.Downloader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Parse a given manifest file to download simulation output</p>
-<p>USim simulation docs:
-<a class="reference external" href="https://github.com/Unity-Technologies/Unity-Simulation-Docs">https://github.com/Unity-Technologies/Unity-Simulation-Docs</a></p>
+<p>For more on Unity Simulation please see these
+<a class="reference external" href="https://github.com/Unity-Technologies/Unity-Simulation-Docs">docs</a></p>
 <dl class="py attribute">
 <dt id="data.simulation.download.Downloader.manifest">
 <code class="sig-name descname">manifest</code><a class="headerlink" href="#data.simulation.download.Downloader.manifest" title="Permalink to this definition">¶</a></dt>
@@ -333,25 +413,23 @@ be downloaded</p>
 <dl class="py method">
 <dt id="data.simulation.download.Downloader.download_captures">
 <code class="sig-name descname">download_captures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.download.Downloader.download_captures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download all captures files.
-#todo update links
-<a class="reference external" href="https://docs.google.com/document/d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.ueuu07ww8otx">https://docs.google.com/document/d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.ueuu07ww8otx</a></p>
+<dd><p>Download all captures files. See <a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="data.simulation.download.Downloader.download_metrics">
 <code class="sig-name descname">download_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.download.Downloader.download_metrics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download all metrics files.
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.62bm95fh1g2h">https://docs.google.com/document/d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.62bm95fh1g2h</a></p>
+See <a class="reference internal" href="Synthetic_Dataset_Schema.html#metrics"><span class="std std-ref">metrics</span></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="data.simulation.download.Downloader.download_references">
 <code class="sig-name descname">download_references</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.download.Downloader.download_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download all reference files.
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.sjklr8srzpt8">https://docs.google.com/document/d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.sjklr8srzpt8</a></p>
+All reference tables are static tables during the simulation.
+This typically comes from the definition of the simulation and should
+be created before tasks running distributed at different instances.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -405,17 +483,20 @@ must be a path to a CA bundle to use</p></li>
 <dt id="data.simulation.download.download_manifest">
 <code class="sig-prename descclassname">data.simulation.download.</code><code class="sig-name descname">download_manifest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">run_execution_id</span></em>, <em class="sig-param"><span class="n">manifest_file</span></em>, <em class="sig-param"><span class="n">auth_token</span></em>, <em class="sig-param"><span class="n">use_cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.download.download_manifest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download manifest file from a single run_execution_id
-#todo are these docs public?
-<a class="reference external" href="https://github.com/Unity-Technologies/Unity-Simulation-Docs">https://github.com/Unity-Technologies/Unity-Simulation-Docs</a>
-:param run_execution_id: USim run execution id
-:type run_execution_id: str
-:param manifest_file: path to the destination of the manifest_file
-:type manifest_file: str
-:param auth_token: short lived authorization token
-:type auth_token: str</p>
+For more on Unity Simulation see these
+<a class="reference external" href="https://github.com/Unity-Technologies/Unity-Simulation-Docs">docs</a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a string representing path to the manifest_file</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_execution_id</strong> (<em>str</em>) – USim run</p></li>
+<li><p><strong>id &lt;https</strong> (<em>`execution</em>) – <p>//github.com/Unity-Technologies/Unity-Simulation-Docs/blob/master/doc/taxonomy.md#run-execution-run-exec&gt;_`</p>
+</p></li>
+<li><p><strong>manifest_file</strong> (<em>str</em>) – path to the destination of the manifest_file</p></li>
+<li><p><strong>auth_token</strong> (<em>str</em>) – short lived authorization token</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a string representing path to the manifest_file</p>
 </dd>
 </dl>
 </dd></dl>
@@ -449,10 +530,8 @@ must be a path to a CA bundle to use</p></li>
 <p>Metrics store extra metadata that can be used to describe a particular
 sequence, capture or annotation. Metric records are stored as arbitrary
 number (M) of key-value pairs.
-For more detail, see schema design here:
-#todo update doc link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#heading=h.9mpbqqwxedti</p>
+For more detail, see schema design doc:
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#metrics"><span class="std std-ref">metrics</span></a></p>
 <dl class="py attribute">
 <dt id="data.simulation.metrics.Metrics.metrics">
 <code class="sig-name descname">metrics</code><a class="headerlink" href="#data.simulation.metrics.Metrics.metrics" title="Permalink to this definition">¶</a></dt>
@@ -471,11 +550,67 @@ For more detail, see schema design here:
 <span class="go">&quot;my_definition_id&quot;</span>
 </pre></div>
 </div>
-<p>One example of metrics_df:
-label_id(int)     instance_id(int)   visible_pixels(int)         2                 2                  2231</p>
-<p>capture_id(str)   annotation_id(str)   sequence_id(str)         412e…           None                 None</p>
-<p>step(int)         label_name(str)
-50                cereal_corn_flakes</p>
+<p>One example of metrics_df (first row shown below):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 33%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>label_id(int)</p></th>
+<th class="head"><p>instance_id(int)</p></th>
+<th class="head"><p>visible_pixels(int)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2231</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 33%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>label_id(int)</p></th>
+<th class="head"><p>capture_id(str)</p></th>
+<th class="head"><p>annotation_id(str)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>None</p></td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 28%" />
+<col style="width: 17%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>label_id(int)</p></th>
+<th class="head"><p>sequence_id(str)</p></th>
+<th class="head"><p>step(int)</p></th>
+<th class="head"><p>label_name(str)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>None</p></td>
+<td><p>50</p></td>
+<td><p>cereal_corn_flakes</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py attribute">
 <dt id="data.simulation.metrics.Metrics.FILE_PATTERN">
 <code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/metrics_*.json'</em><a class="headerlink" href="#data.simulation.metrics.Metrics.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
@@ -518,9 +653,7 @@ Columns: “label_id”, “capture_id”, “annotation_id”, “sequence_id�
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Load annotation_definitions table</p>
 <p>For more detail, see schema design here:
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#heading=h.i6217crabzpe</p>
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#annotation-definitions-json"><span class="std std-ref">annotation_definitions.json</span></a></p>
 <dl class="py attribute">
 <dt id="data.simulation.references.AnnotationDefinitions.table">
 <code class="sig-name descname">table</code><a class="headerlink" href="#data.simulation.references.AnnotationDefinitions.table" title="Permalink to this definition">¶</a></dt>
@@ -559,13 +692,14 @@ Columns: “label_id”, “capture_id”, “annotation_id”, “sequence_id�
 <dl class="py method">
 <dt id="data.simulation.references.AnnotationDefinitions.load_annotation_definitions">
 <code class="sig-name descname">load_annotation_definitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.references.AnnotationDefinitions.load_annotation_definitions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load annotation definition files.
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/
-edit#bookmark=id.4qtn5ym9nsy6
-:param data_root: the root directory of the dataset containing
-:type data_root: str</p>
+<dd><p>Load annotation definition files.</p>
+<p>For more detail, see schema design here:
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#annotation-definitions-json"><span class="std std-ref">annotation_definitions.json</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_root</strong> (<em>str</em>) – the root directory of the dataset containing</p>
+</dd>
+</dl>
 <dl class="simple">
 <dt>tables</dt><dd><p>version (str): desired schema version</p>
 </dd>
@@ -589,9 +723,7 @@ for the annotation values)</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Load egos table</p>
 <p>For more detail, see schema design here:
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#heading=h.3rpgtair2cli</p>
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#egos-json"><span class="std std-ref">egos.json</span></a></p>
 <dl class="py attribute">
 <dt id="data.simulation.references.Egos.table">
 <code class="sig-name descname">table</code><a class="headerlink" href="#data.simulation.references.Egos.table" title="Permalink to this definition">¶</a></dt>
@@ -617,22 +749,22 @@ for the annotation values)</p>
 <dt id="data.simulation.references.Egos.load_egos">
 <code class="sig-name descname">load_egos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.references.Egos.load_egos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load egos files.
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/
-edit#bookmark=id.x9sve3w8ahpv
-:param data_root: the root directory of the dataset containing
-:type data_root: str
-:param ego tables:
-:param version: desired schema version
-:type version: str</p>
+For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#egos-json"><span class="std std-ref">egos.json</span></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>id
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_root</strong> (<em>str</em>) – the root directory of the dataset containing</p></li>
+<li><p><strong>tables</strong> (<em>ego</em>) – </p></li>
+<li><p><strong>version</strong> (<em>str</em>) – desired schema version</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>id
 (ego id) and description</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>A pandas dataframe with all ego records with two columns</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A pandas dataframe with all ego records with two columns</p>
 </dd>
 </dl>
 </dd></dl>
@@ -644,19 +776,19 @@ edit#bookmark=id.x9sve3w8ahpv
 <em class="property">class </em><code class="sig-prename descclassname">data.simulation.references.</code><code class="sig-name descname">MetricDefinitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.references.MetricDefinitions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Load metric_definitions table</p>
-<p>For more detail, see schema design here:
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/edit#bookmark=id.hzkb7u68plnp
-.. attribute:: table</p>
-<blockquote>
-<div><p>a collection of metric_definitions records with columns: id</p>
+<p>For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#metric-definitions-json"><span class="std std-ref">metric_definitions.json</span></a></p>
+<dl class="py attribute">
+<dt id="data.simulation.references.MetricDefinitions.table">
+<code class="sig-name descname">table</code><a class="headerlink" href="#data.simulation.references.MetricDefinitions.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of metric_definitions records with columns: id</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>pd</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <p>(id for metric definition), name, description, spec (definition specific
 spec)</p>
 <dl class="py attribute">
@@ -686,22 +818,18 @@ spec)</p>
 <dl class="py method">
 <dt id="data.simulation.references.MetricDefinitions.load_metric_definitions">
 <code class="sig-name descname">load_metric_definitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.references.MetricDefinitions.load_metric_definitions" title="Permalink to this definition">¶</a></dt>
-<dd><dl>
-<dt>Load metric definition files.</dt><dd><p><a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/
-edit#bookmark=id.hzkb7u68plnp
-Args:</p>
+<dd><p>Load metric definition files.</p>
 <blockquote>
-<div><p>data_root (str): the root directory of the dataset containing tables
-version (str): desired schema version</p>
-</div></blockquote>
+<div><p><a class="reference internal" href="Synthetic_Dataset_Schema.html#metric-definitions-json"><span class="std std-ref">metric_definitions.json</span></a></p>
 <dl class="simple">
+<dt>Args:</dt><dd><p>data_root (str): the root directory of the dataset containing tables
+version (str): desired schema version</p>
+</dd>
 <dt>Returns:</dt><dd><p>A Pandas dataframe with metric definition records.</p>
 </dd>
 </dl>
 <p>a collection of metric_definitions records with columns: id</p>
-</dd>
-</dl>
+</div></blockquote>
 <p>(id for metric definition), name, description, spec (definition specific
 spec)</p>
 </dd></dl>
@@ -713,20 +841,19 @@ spec)</p>
 <em class="property">class </em><code class="sig-prename descclassname">data.simulation.references.</code><code class="sig-name descname">Sensors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.references.Sensors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Load sensors table</p>
-<p>For more detail, see schema design here:
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/">https://docs.google.com/document/</a>
-d/1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/
-edit#bookmark=id.ch2kop9kkj86
-.. attribute:: table</p>
-<blockquote>
-<div><p>a collection of sensors records with columns:</p>
+<p>For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#sensors-json"><span class="std std-ref">sensors.json</span></a></p>
+<dl class="py attribute">
+<dt id="data.simulation.references.Sensors.table">
+<code class="sig-name descname">table</code><a class="headerlink" href="#data.simulation.references.Sensors.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of sensors records with columns:</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>pd</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <dl class="py attribute">
 <dt>
 <code class="sig-name descname">'id'</code></dt>
@@ -755,13 +882,14 @@ edit#bookmark=id.ch2kop9kkj86
 <dl class="py method">
 <dt id="data.simulation.references.Sensors.load_sensors">
 <code class="sig-name descname">load_sensors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.simulation.references.Sensors.load_sensors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load sensors files.
-#todo update link
-<a class="reference external" href="https://docs.google.com/document/d/">https://docs.google.com/document/d/</a>
-1lKPm06z09uX9gZIbmBUMO6WKlIGXiv3hgXb_taPOnU0/
-edit#bookmark=id.ch2kop9kkj86
-:param data_root: the root directory of the dataset containing
-:type data_root: str</p>
+<dd><p>Load sensors files.</p>
+<p>For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#sensors-json"><span class="std std-ref">sensors.json</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_root</strong> (<em>str</em>) – the root directory of the dataset containing</p>
+</dd>
+</dl>
 <dl class="simple">
 <dt>tables</dt><dd><p>version (str): desired schema version</p>
 </dd>
@@ -932,12 +1060,10 @@ json_normalize method.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#data.simulation.validation.VersionError" title="data.simulation.validation.VersionError"><strong>VersionError</strong></a> – If the version in json file does not match the requested</p></li>
-<li><p><strong>version.</strong> – </p></li>
-</ul>
+<dd class="field-even"><p><a class="reference internal" href="#data.simulation.validation.VersionError" title="data.simulation.validation.VersionError"><strong>VersionError</strong></a> – If the version in json file does not match the requested</p>
 </dd>
 </dl>
+<p>version.</p>
 </dd></dl>
 
 <span class="target" id="module-data.simulation"></span></div>

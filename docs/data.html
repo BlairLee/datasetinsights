@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="data.datasets" href="data.datasets.html" />
-    <link rel="prev" title="Welcome to Thea’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Welcome to the Unity Dataset Insights documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,7 +81,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Package Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.datasets.html">data.datasets</a></li>
@@ -91,6 +91,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-data.transforms">data.transforms</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Additional docs:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
 </ul>
 
@@ -253,21 +256,23 @@ if this is a ground truth bounding box.</p>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<p>Here is an example about how to use this class.
-&gt;&gt;&gt; gt_bbox = BBox2D(label=’car’, x=2, y=6, w=2, h=4)
-&gt;&gt;&gt; gt_bbox
-“label=’car’<a href="#id1"><span class="problematic" id="id2">|</span></a>score=1.0|x=2.0|y=6.0|w=2.0|h=4.0”
-&gt;&gt;&gt; pred_bbox = BBox2D(label=’car’, x=2, y=5, w=2, h=4, score=0.79)
-&gt;&gt;&gt; pred_bbox.area
-8
-&gt;&gt;&gt; pred_bbox.intersect_with(gt_bbox)
-True
-&gt;&gt;&gt; pred_bbox.intersection(gt_bbox)
-6
-&gt;&gt;&gt; pred_bbox.union(gt_bbox)
-10
-&gt;&gt;&gt; pred_bbox.iou(gt_bbox)
-0.6</p>
+<p>Here is an example about how to use this class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gt_bbox</span> <span class="o">=</span> <span class="n">BBox2D</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gt_bbox</span>
+<span class="go">&quot;label=&#39;car&#39;|score=1.0|x=2.0|y=6.0|w=2.0|h=4.0&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred_bbox</span> <span class="o">=</span> <span class="n">BBox2D</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mf">0.79</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred_bbox</span><span class="o">.</span><span class="n">area</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred_bbox</span><span class="o">.</span><span class="n">intersect_with</span><span class="p">(</span><span class="n">gt_bbox</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred_bbox</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">gt_bbox</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred_bbox</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">gt_bbox</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred_bbox</span><span class="o">.</span><span class="n">iou</span><span class="p">(</span><span class="n">gt_bbox</span><span class="p">)</span>
+<span class="go">0.6</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt id="data.bbox.BBox2D.area">
 <em class="property">property </em><code class="sig-name descname">area</code><a class="headerlink" href="#data.bbox.BBox2D.area" title="Permalink to this definition">¶</a></dt>
@@ -285,7 +290,7 @@ True
 <dd><p>Check whether this box intersects with other bounding box</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to check intersaction</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to check intersection</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True if two bounding boxes intersect, False otherwise</p>
@@ -299,7 +304,7 @@ True
 <dd><p>Calculate the intersection area with other bounding box</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to calculate intersaction</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to calculate intersection</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>float of the intersection area for two bounding boxes</p>
@@ -310,22 +315,15 @@ True
 <dl class="py method">
 <dt id="data.bbox.BBox2D.iou">
 <code class="sig-name descname">iou</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.bbox.BBox2D.iou" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate intersaction over union area with other bounding box</p>
-<blockquote>
-<div><div class="math notranslate nohighlight">
-\[egin{aligned}
-    IOU =\]</div>
-</div></blockquote>
-<dl>
-<dt>rac{intersection area}{union area}</dt><dd><blockquote>
-<div><p>end{aligned}</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Args:</dt><dd><p>other (BBox2D): other bounding box object to calculate iou</p>
+<dd><p>Calculate intersection over union area with other bounding box</p>
+<div class="math notranslate nohighlight">
+\[IOU = \frac{intersection}{union}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#data.bbox.BBox2D" title="data.bbox.BBox2D"><em>BBox2D</em></a>) – other bounding box object to calculate iou</p>
 </dd>
-<dt>Returns:</dt><dd><p>float of the union area for two bounding boxes</p>
-</dd>
-</dl>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float of the union area for two bounding boxes</p>
 </dd>
 </dl>
 </dd></dl>
@@ -486,7 +484,7 @@ have their own create_loader method.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset</strong> (<a class="reference internal" href="data.datasets.html#data.datasets.base.Dataset" title="data.datasets.base.Dataset"><em>Dataset</em></a>) – dataset object derived from
-<cite>thea.data.datasets.Dataset</cite> class.</p></li>
+<cite>datasetinsights.data.datasets.Dataset</cite> class.</p></li>
 <li><p><strong>dryrun</strong> (<em>bool</em>) – indicator whether to use a very small subset of the
 dataset. This subset is useful to make sure we can quickly run
 estimator without loading the whole dataset. (default: False)</p></li>
@@ -560,7 +558,7 @@ number. i.e, if height &gt; width, then image will be rescaled to
         <a href="data.datasets.html" class="btn btn-neutral float-right" title="data.datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Thea’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Unity Dataset Insights documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

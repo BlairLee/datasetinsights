@@ -1,11 +1,7 @@
-thea
-====
+datasetinsights
+===============
 
 .. toctree::
    :maxdepth: 4
 
-   constants
-   data
-   scripts
-   storage
-   visual
+   datasetinsights

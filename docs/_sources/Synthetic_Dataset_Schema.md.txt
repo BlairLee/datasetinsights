@@ -63,7 +63,7 @@ This means that instead of requiring multiple id-based "joins" to explore the da
 ## Components
 ![image alt text](image_0.png)
 
-### capture
+### captures
 
 A capture record contains the relationship between a captured file, a collection of annotations, and extra metadata that describes the state of the sensor.
 
