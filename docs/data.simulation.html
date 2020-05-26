@@ -189,8 +189,7 @@ capture. For more detail, see schema design here:</p>
 <span class="go">#captures class automatically loads the captures (e.g. lidar scan,</span>
 <span class="go">image, depth map) and the annotations (e.g semantic segmentation</span>
 <span class="go">labels, bounding boxes, etc.)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">captures</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">def_id</span><span class="o">=</span>
-<span class="go">&quot;6716c783-1c0e-44ae-b1b5-7f068454b66e&quot;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">captures</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">def_id</span><span class="o">=</span><span class="s2">&quot;6716c783-1c0e-44ae-b1b5-7f068454b66e&quot;</span><span class="p">)</span>
 <span class="go">#return the captures and annotations filtered by the annotation</span>
 <span class="go">definition id</span>
 </pre></div>
@@ -252,7 +251,7 @@ Columns: ‘id’ (capture id), ‘sequence_id’, ‘step’, ‘timestamp’,
     specified as a parameter.</p>
 </dd>
 </dl>
-<p>Example Returned Dataframed (first row):</p>
+<p>Example Returned Dataframe (first row):</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -567,47 +566,6 @@ For more detail, see schema design doc:
 <tr class="row-even"><td><p>2</p></td>
 <td><p>2</p></td>
 <td><p>2231</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 29%" />
-<col style="width: 33%" />
-<col style="width: 38%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>label_id(int)</p></th>
-<th class="head"><p>capture_id(str)</p></th>
-<th class="head"><p>annotation_id(str)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>None</p></td>
-<td><p>None</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 28%" />
-<col style="width: 17%" />
-<col style="width: 31%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>label_id(int)</p></th>
-<th class="head"><p>sequence_id(str)</p></th>
-<th class="head"><p>step(int)</p></th>
-<th class="head"><p>label_name(str)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>None</p></td>
-<td><p>50</p></td>
-<td><p>cereal_corn_flakes</p></td>
 </tr>
 </tbody>
 </table>

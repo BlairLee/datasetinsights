@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datasetinsights.storage &mdash; datasetinsights 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> datasetinsights
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">datasetinsights</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>datasetinsights.storage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/datasetinsights.storage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datasetinsights-storage">
+<h1>datasetinsights.storage<a class="headerlink" href="#datasetinsights-storage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-datasetinsights.storage.checkpoint">
+<span id="datasetinsights-storage-checkpoint"></span><h2>datasetinsights.storage.checkpoint<a class="headerlink" href="#module-datasetinsights.storage.checkpoint" title="Permalink to this headline">¶</a></h2>
+<p>Save estimator checkpoints</p>
+<dl class="py class">
+<dt id="datasetinsights.storage.checkpoint.DistributedEstimatorCheckpoint">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.storage.checkpoint.</code><code class="sig-name descname">DistributedEstimatorCheckpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">is_master</span></em>, <em class="sig-param"><span class="n">estimator_checkpoint</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.DistributedEstimatorCheckpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="datasetinsights.storage.checkpoint.DistributedEstimatorCheckpoint.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">full_cloud_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.DistributedEstimatorCheckpoint.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.storage.checkpoint.DistributedEstimatorCheckpoint.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.DistributedEstimatorCheckpoint.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.storage.checkpoint.EstimatorCheckpoint">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.storage.checkpoint.</code><code class="sig-name descname">EstimatorCheckpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dirname</span></em>, <em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'estimator'</span></em>, <em class="sig-param"><span class="n">create_dir</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.EstimatorCheckpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interact with estimator checkpoints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dirname</strong> (<em>str</em>) – directory name of where checkpoint files are stored</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – filename prefix of the checkpoint files</p></li>
+<li><p><strong>suffix</strong> (<em>str</em>) – filename suffix of the checkpoint files</p></li>
+<li><p><strong>create_dir</strong> (<em>bool</em>) – indicate whether to force create directoy if
+the specified dirname does not exist. Default: True</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="datasetinsights.storage.checkpoint.EstimatorCheckpoint.dirname">
+<code class="sig-name descname">dirname</code><a class="headerlink" href="#datasetinsights.storage.checkpoint.EstimatorCheckpoint.dirname" title="Permalink to this definition">¶</a></dt>
+<dd><p>directory name of where checkpoint files are stored</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.storage.checkpoint.EstimatorCheckpoint.prefix">
+<code class="sig-name descname">prefix</code><a class="headerlink" href="#datasetinsights.storage.checkpoint.EstimatorCheckpoint.prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>filename prefix of the checkpoint files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.storage.checkpoint.EstimatorCheckpoint.suffix">
+<code class="sig-name descname">suffix</code><a class="headerlink" href="#datasetinsights.storage.checkpoint.EstimatorCheckpoint.suffix" title="Permalink to this definition">¶</a></dt>
+<dd><p>filename suffix of the checkpoint files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.storage.checkpoint.EstimatorCheckpoint.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.EstimatorCheckpoint.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load estimator from checkpoint files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator</strong> (<em>datasetinsights.estimators.Estimator</em>) – datasetinsights estimator object.</p></li>
+<li><p><strong>path</strong> – full path to the checkpoint file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.storage.checkpoint.EstimatorCheckpoint.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.EstimatorCheckpoint.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save estimator to checkpoint files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator</strong> (<em>datasetinsights.estimators.Estimator</em>) – datasetinsights estimator object.</p></li>
+<li><p><strong>epoch</strong> (<em>int</em>) – the current epoch number. Default: None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>full path to the saved checkpoint file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.storage.checkpoint.GCSEstimatorCheckpoint">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.storage.checkpoint.</code><code class="sig-name descname">GCSEstimatorCheckpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cloud_path</span></em>, <em class="sig-param"><span class="n">prefix</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'estimator'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.GCSEstimatorCheckpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interact with estimator checkpoints on GCS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cloud_path</strong> (<em>str</em>) – GCS cloud path (e.g. gs://bucket/path/to/directoy)</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – filename prefix of the checkpoint files</p></li>
+<li><p><strong>suffix</strong> (<em>str</em>) – filename suffix of the checkpoint files</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="datasetinsights.storage.checkpoint.GCSEstimatorCheckpoint.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">full_cloud_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.GCSEstimatorCheckpoint.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load estimator from checkpoint files on GCS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator</strong> (<em>datasetinsights.estimators.Estimator</em>) – datasetinsights estimator object.</p></li>
+<li><p><strong>path</strong> – full path to the checkpoint file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.storage.checkpoint.GCSEstimatorCheckpoint.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimator</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.GCSEstimatorCheckpoint.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save estimator to checkpoint files on GCS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator</strong> (<em>datasetinsights.estimators.Estimator</em>) – datasetinsights estimator object.</p></li>
+<li><p><strong>epoch</strong> (<em>int</em>) – the current epoch number. Default: None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>full GCS cloud path to the saved checkpoint file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.storage.checkpoint.checkpoint_file_on_gcs">
+<code class="sig-prename descclassname">datasetinsights.storage.checkpoint.</code><code class="sig-name descname">checkpoint_file_on_gcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.checkpoint_file_on_gcs" title="Permalink to this definition">¶</a></dt>
+<dd><p>determine whether or not the checkpoint file to load an estimator is on
+gcs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – </p>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.storage.checkpoint.create_checkpointer">
+<code class="sig-prename descclassname">datasetinsights.storage.checkpoint.</code><code class="sig-name descname">create_checkpointer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">logdir</span></em>, <em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.checkpoint.create_checkpointer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the correct estimator checkpointer
+:param logdir: filepath to where to save/load local copy of estimator
+:param config:</p>
+<p>Returns (EstimatorCheckpoint): the correct estimator checkpoint for the
+config. The Estimator Checkpoint is responsible for saving and loading
+the estimator.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.storage.gcs">
+<span id="datasetinsights-storage-gcs"></span><h2>datasetinsights.storage.gcs<a class="headerlink" href="#module-datasetinsights.storage.gcs" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="datasetinsights.storage.gcs.GCSClient">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.storage.gcs.</code><code class="sig-name descname">GCSClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.gcs.GCSClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="datasetinsights.storage.gcs.GCSClient.download">
+<code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bucket_name</span></em>, <em class="sig-param"><span class="n">object_key</span></em>, <em class="sig-param"><span class="n">localfile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.gcs.GCSClient.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download a single object from GCS</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.storage.gcs.GCSClient.upload">
+<code class="sig-name descname">upload</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">localfile</span></em>, <em class="sig-param"><span class="n">bucket_name</span></em>, <em class="sig-param"><span class="n">object_key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.gcs.GCSClient.upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload a single object to GCS</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.storage.gcs.copy_folder_to_gcs">
+<code class="sig-prename descclassname">datasetinsights.storage.gcs.</code><code class="sig-name descname">copy_folder_to_gcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cloud_path</span></em>, <em class="sig-param"><span class="n">folder</span></em>, <em class="sig-param"><span class="n">pattern</span><span class="o">=</span><span class="default_value">'*'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.gcs.copy_folder_to_gcs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy all files within a folder to GCS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pattern</strong> – Unix glob patterns. Use <a href="#id1"><span class="problematic" id="id2">**</span></a>/* for recursive glob.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.storage.gcs.gcs_bucket_and_path">
+<code class="sig-prename descclassname">datasetinsights.storage.gcs.</code><code class="sig-name descname">gcs_bucket_and_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.storage.gcs.gcs_bucket_and_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split an GCS-prefixed URL into bucket and path.</p>
+</dd></dl>
+
+<span class="target" id="module-datasetinsights.storage"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Unity Technologies
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

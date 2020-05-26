@@ -1,7 +1,6 @@
-datasetinsights
-===============
+thea
+====
 
 .. toctree::
    :maxdepth: 4
 
-   datasetinsights

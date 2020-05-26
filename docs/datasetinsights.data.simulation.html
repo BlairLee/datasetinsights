@@ -1,0 +1,1050 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datasetinsights.data.simulation &mdash; datasetinsights 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> datasetinsights
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional docs:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Synthetic_Dataset_Schema.html">Synthetic Dataset Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">datasetinsights</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>datasetinsights.data.simulation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/datasetinsights.data.simulation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datasetinsights-data-simulation">
+<h1>datasetinsights.data.simulation<a class="headerlink" href="#datasetinsights-data-simulation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-datasetinsights.data.simulation.captures">
+<span id="datasetinsights-data-simulation-captures"></span><h2>datasetinsights.data.simulation.captures<a class="headerlink" href="#module-datasetinsights.data.simulation.captures" title="Permalink to this headline">¶</a></h2>
+<p>Load Synthetic dataset captures and annotations tables</p>
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.captures.Captures">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.captures.</code><code class="sig-name descname">Captures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span><span class="o">=</span><span class="default_value">'/data'</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.captures.Captures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load captures table</p>
+<p>A capture record stores the relationship between a captured file,
+a collection of annotations, and extra metadata that describes this
+capture. For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a></p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">captures</span> <span class="o">=</span> <span class="n">Captures</span><span class="p">(</span><span class="n">data_root</span><span class="o">=</span><span class="s2">&quot;/data&quot;</span><span class="p">)</span>
+<span class="go">#captures class automatically loads the captures (e.g. lidar scan,</span>
+<span class="go">image, depth map) and the annotations (e.g semantic segmentation</span>
+<span class="go">labels, bounding boxes, etc.)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">captures</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">def_id</span><span class="o">=</span><span class="s2">&quot;6716c783-1c0e-44ae-b1b5-7f068454b66e&quot;</span><span class="p">)</span>
+<span class="go">#return the captures and annotations filtered by the annotation</span>
+<span class="go">definition id</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.captures.Captures.captures">
+<code class="sig-name descname">captures</code><a class="headerlink" href="#datasetinsights.data.simulation.captures.Captures.captures" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of captures without annotations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.captures.Captures.annotations">
+<code class="sig-name descname">annotations</code><a class="headerlink" href="#datasetinsights.data.simulation.captures.Captures.annotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of annotations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.captures.Captures.FILE_PATTERN">
+<code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/captures_*.json'</em><a class="headerlink" href="#datasetinsights.data.simulation.captures.Captures.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.captures.Captures.TABLE_NAME">
+<code class="sig-name descname">TABLE_NAME</code><em class="property"> = 'captures'</em><a class="headerlink" href="#datasetinsights.data.simulation.captures.Captures.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.captures.Captures.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">def_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.captures.Captures.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get captures and annotations filtered by annotation definition id
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>def_id</strong> (<em>int</em>) – annotation definition id used to filter results</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>A pandas dataframe with captures and annotations
+Columns: ‘id’ (capture id), ‘sequence_id’, ‘step’, ‘timestamp’,
+‘sensor’, ‘ego’,</p>
+<blockquote>
+<div><p>’filename’, ‘format’, ‘annotation.id’,
+‘annotation.annotation_definition’,’annotation.values’</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="data.simulation.html#data.simulation.exceptions.DefinitionIDError" title="data.simulation.exceptions.DefinitionIDError"><strong>DefinitionIDError</strong></a> – Raised if none of the annotation records in the
+    combined annotation and captures dataframe match the def_id
+    specified as a parameter.</p>
+</dd>
+</dl>
+<p>Example Returned Dataframe (first row):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 33%" />
+<col style="width: 18%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>sequence_id(str)</p></td>
+<td><p>step(int)</p></td>
+<td><p>timestamp (float)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>295c…</p></td>
+<td><p>300</p></td>
+<td><p>4.9</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>sensor (dict)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>{‘sensor_id’: ‘dDDa873b…’, ‘ego_id’: ‘44ca9’,
+‘modality’: ‘camera’,
+‘translation’: [0.0, 0.0, 0.0],
+‘rotation’: [0.0, 0.0, 0.0, 1.0],
+‘scale’: 0.344577253}</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>ego (dict)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>{‘ego_id’: ‘44ca9…’,
+‘translation’: [0.0, 0.0, -20.0],
+‘rotation’:[0.0, 0.0, 0.0, 1.0],
+‘velocity’: None, ‘acceleration’: None}</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 26%" />
+<col style="width: 22%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>filename(str)</p></td>
+<td><p>format(str)</p></td>
+<td><p>annotation.id (str)</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>RGB3/asd.png</p></td>
+<td><p>PNG</p></td>
+<td><p>ace0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>id(str)</p></td>
+<td><p>annotation.values</p></td>
+</tr>
+<tr class="row-even"><td><p>cdc8..</p></td>
+<td><p>[{‘label_id’: 34,
+‘label_name’: ‘snack_chips_pringles’,
+…’height’: 118.0},
+{‘label_id’: 35, ‘… ‘height’: 91.0}…]</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.data.simulation.download">
+<span id="datasetinsights-data-simulation-download"></span><h2>datasetinsights.data.simulation.download<a class="headerlink" href="#module-datasetinsights.data.simulation.download" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.download.Downloader">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.download.</code><code class="sig-name descname">Downloader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">manifest_file</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">data_root</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">use_cache</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Parse a given manifest file to download simulation output</p>
+<p>For more on Unity Simulation please see these
+<a class="reference external" href="https://github.com/Unity-Technologies/Unity-Simulation-Docs">docs</a></p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.download.Downloader.manifest">
+<code class="sig-name descname">manifest</code><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.manifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>the csv manifest file stored in a pandas dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.download.Downloader.data_root">
+<code class="sig-name descname">data_root</code><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.data_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>root directory where the simulation output should
+be downloaded</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.download.Downloader.use_cache">
+<code class="sig-name descname">use_cache</code><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.use_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>use cache instead of re-download if file exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.download.Downloader.MANIFEST_FILE_COLUMNS">
+<code class="sig-name descname">MANIFEST_FILE_COLUMNS</code><em class="property"> = ('run_execution_id', 'app_param_id', 'instance_id', 'attempt_id', 'file_name', 'download_uri')</em><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.MANIFEST_FILE_COLUMNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.Downloader.download_all">
+<code class="sig-name descname">download_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.download_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all files in the manifest file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.Downloader.download_binary_files">
+<code class="sig-name descname">download_binary_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.download_binary_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all binary files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.Downloader.download_captures">
+<code class="sig-name descname">download_captures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.download_captures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all captures files. See <a class="reference internal" href="Synthetic_Dataset_Schema.html#captures"><span class="std std-ref">captures</span></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.Downloader.download_metrics">
+<code class="sig-name descname">download_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.download_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all metrics files.
+See <a class="reference internal" href="Synthetic_Dataset_Schema.html#metrics"><span class="std std-ref">metrics</span></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.Downloader.download_references">
+<code class="sig-name descname">download_references</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.download_references" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all reference files.
+All reference tables are static tables during the simulation.
+This typically comes from the definition of the simulation and should
+be created before tasks running distributed at different instances.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.Downloader.match_filetypes">
+<em class="property">static </em><code class="sig-name descname">match_filetypes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">manifest</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.Downloader.match_filetypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Match filetypes for every rows in the manifest file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>manifest</strong> (<em>pd.DataFrame</em>) – the manifest csv file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of filetype strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.download.TimeoutHTTPAdapter">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.download.</code><code class="sig-name descname">TimeoutHTTPAdapter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timeout</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.TimeoutHTTPAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">requests.adapters.HTTPAdapter</span></code></p>
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.download.TimeoutHTTPAdapter.send">
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.TimeoutHTTPAdapter.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends PreparedRequest object. Returns Response object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – The <code class="xref py py-class docutils literal notranslate"><span class="pre">PreparedRequest</span></code> being sent.</p></li>
+<li><p><strong>stream</strong> – (optional) Whether to stream the request content.</p></li>
+<li><p><strong>timeout</strong> (<em>float</em><em> or </em><em>tuple</em><em> or </em><em>urllib3 Timeout object</em>) – (optional) How long to wait for the server to send
+data before giving up, as a float, or a <span class="xref std std-ref">(connect timeout,
+read timeout)</span> tuple.</p></li>
+<li><p><strong>verify</strong> – (optional) Either a boolean, in which case it controls whether
+we verify the server’s TLS certificate, or a string, in which case it
+must be a path to a CA bundle to use</p></li>
+<li><p><strong>cert</strong> – (optional) Any user-provided SSL certificate to be trusted.</p></li>
+<li><p><strong>proxies</strong> – (optional) The proxies dictionary to apply to the request.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>requests.Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.data.simulation.download.download_manifest">
+<code class="sig-prename descclassname">datasetinsights.data.simulation.download.</code><code class="sig-name descname">download_manifest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">run_execution_id</span></em>, <em class="sig-param"><span class="n">manifest_file</span></em>, <em class="sig-param"><span class="n">auth_token</span></em>, <em class="sig-param"><span class="n">use_cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.download.download_manifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download manifest file from a single run_execution_id
+For more on Unity Simulation see these
+<a class="reference external" href="https://github.com/Unity-Technologies/Unity-Simulation-Docs">docs</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_execution_id</strong> (<em>str</em>) – USim run</p></li>
+<li><p><strong>id &lt;https</strong> (<em>`execution</em>) – <p>//github.com/Unity-Technologies/Unity-Simulation-Docs/blob/master/doc/taxonomy.md#run-execution-run-exec&gt;_`</p>
+</p></li>
+<li><p><strong>manifest_file</strong> (<em>str</em>) – path to the destination of the manifest_file</p></li>
+<li><p><strong>auth_token</strong> (<em>str</em>) – short lived authorization token</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a string representing path to the manifest_file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.data.simulation.exceptions">
+<span id="datasetinsights-data-simulation-exceptions"></span><h2>datasetinsights.data.simulation.exceptions<a class="headerlink" href="#module-datasetinsights.data.simulation.exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="datasetinsights.data.simulation.exceptions.DefinitionIDError">
+<em class="property">exception </em><code class="sig-prename descclassname">datasetinsights.data.simulation.exceptions.</code><code class="sig-name descname">DefinitionIDError</code><a class="headerlink" href="#datasetinsights.data.simulation.exceptions.DefinitionIDError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when a given definition id can’t be found.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="datasetinsights.data.simulation.exceptions.DownloadError">
+<em class="property">exception </em><code class="sig-prename descclassname">datasetinsights.data.simulation.exceptions.</code><code class="sig-name descname">DownloadError</code><a class="headerlink" href="#datasetinsights.data.simulation.exceptions.DownloadError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when download file failed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.data.simulation.metrics">
+<span id="datasetinsights-data-simulation-metrics"></span><h2>datasetinsights.data.simulation.metrics<a class="headerlink" href="#module-datasetinsights.data.simulation.metrics" title="Permalink to this headline">¶</a></h2>
+<p>Load Synthetic dataset Metrics</p>
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.metrics.Metrics">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.metrics.</code><code class="sig-name descname">Metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span><span class="o">=</span><span class="default_value">'/data'</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.metrics.Metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load metrics table</p>
+<p>Metrics store extra metadata that can be used to describe a particular
+sequence, capture or annotation. Metric records are stored as arbitrary
+number (M) of key-value pairs.
+For more detail, see schema design doc:
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#metrics"><span class="std std-ref">metrics</span></a></p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.metrics.Metrics.metrics">
+<code class="sig-name descname">metrics</code><a class="headerlink" href="#datasetinsights.data.simulation.metrics.Metrics.metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of metrics records</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dask.bag.core.Bag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metrics</span> <span class="o">=</span> <span class="n">Metrics</span><span class="p">(</span><span class="n">data_root</span><span class="o">=</span><span class="s2">&quot;/data&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metrics_df</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">filter_metrics</span><span class="p">(</span><span class="n">def_id</span><span class="o">=</span><span class="s2">&quot;my_definition_id&quot;</span><span class="p">)</span>
+<span class="go">#metrics_df now contains all the metrics data corresponding to</span>
+<span class="go">&quot;my_definition_id&quot;</span>
+</pre></div>
+</div>
+<p>One example of metrics_df (first row shown below):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 33%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>label_id(int)</p></th>
+<th class="head"><p>instance_id(int)</p></th>
+<th class="head"><p>visible_pixels(int)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2231</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.metrics.Metrics.FILE_PATTERN">
+<code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/metrics_*.json'</em><a class="headerlink" href="#datasetinsights.data.simulation.metrics.Metrics.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.metrics.Metrics.TABLE_NAME">
+<code class="sig-name descname">TABLE_NAME</code><em class="property"> = 'metrics'</em><a class="headerlink" href="#datasetinsights.data.simulation.metrics.Metrics.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.metrics.Metrics.filter_metrics">
+<code class="sig-name descname">filter_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">def_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.metrics.Metrics.filter_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all metrics filtered by a given metric definition id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>def_id</strong> (<em>str</em>) – metric definition id used to filter results</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="data.simulation.html#data.simulation.exceptions.DefinitionIDError" title="data.simulation.exceptions.DefinitionIDError"><strong>DefinitionIDError</strong></a> – raised if no metrics records match the given</p></li>
+<li><p><strong>def_id</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns (pd.DataFrame):
+Columns: “label_id”, “capture_id”, “annotation_id”, “sequence_id”,
+“step”</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.data.simulation.references">
+<span id="datasetinsights-data-simulation-references"></span><h2>datasetinsights.data.simulation.references<a class="headerlink" href="#module-datasetinsights.data.simulation.references" title="Permalink to this headline">¶</a></h2>
+<p>Load Synthetic dataset references tables</p>
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.references.AnnotationDefinitions">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.references.</code><code class="sig-name descname">AnnotationDefinitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.AnnotationDefinitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load annotation_definitions table</p>
+<p>For more detail, see schema design here:
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#annotation-definitions-json"><span class="std std-ref">annotation_definitions.json</span></a></p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.AnnotationDefinitions.table">
+<code class="sig-name descname">table</code><a class="headerlink" href="#datasetinsights.data.simulation.references.AnnotationDefinitions.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of annotation_definitions records</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.AnnotationDefinitions.FILE_PATTERN">
+<code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/annotation_definitions.json'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.AnnotationDefinitions.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.AnnotationDefinitions.TABLE_NAME">
+<code class="sig-name descname">TABLE_NAME</code><em class="property"> = 'annotation_definitions'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.AnnotationDefinitions.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.references.AnnotationDefinitions.get_definition">
+<code class="sig-name descname">get_definition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">def_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.AnnotationDefinitions.get_definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the annotation definition for a given definition id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>def_id</strong> (<em>int</em>) – annotation definition id used to filter results</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dictionary containing the annotation definition</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.references.AnnotationDefinitions.load_annotation_definitions">
+<code class="sig-name descname">load_annotation_definitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.AnnotationDefinitions.load_annotation_definitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load annotation definition files.</p>
+<p>For more detail, see schema design here:
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#annotation-definitions-json"><span class="std std-ref">annotation_definitions.json</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_root</strong> (<em>str</em>) – the root directory of the dataset containing</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>tables</dt><dd><p>version (str): desired schema version</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Pandas dataframe with annotation definition records.
+Columns: ‘id’ (annotation id), ‘name’ (annotation name),
+‘description’ (string description), ‘format’
+(string describing format), ‘spec’ ( Format-specific specification
+for the annotation values)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.references.Egos">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.references.</code><code class="sig-name descname">Egos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.Egos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load egos table</p>
+<p>For more detail, see schema design here:
+<a class="reference internal" href="Synthetic_Dataset_Schema.html#egos-json"><span class="std std-ref">egos.json</span></a></p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.Egos.table">
+<code class="sig-name descname">table</code><a class="headerlink" href="#datasetinsights.data.simulation.references.Egos.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of egos records</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.Egos.FILE_PATTERN">
+<code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/egos.json'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.Egos.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.Egos.TABLE_NAME">
+<code class="sig-name descname">TABLE_NAME</code><em class="property"> = 'egos'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.Egos.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.references.Egos.load_egos">
+<code class="sig-name descname">load_egos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.Egos.load_egos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load egos files.
+For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#egos-json"><span class="std std-ref">egos.json</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_root</strong> (<em>str</em>) – the root directory of the dataset containing</p></li>
+<li><p><strong>tables</strong> (<em>ego</em>) – </p></li>
+<li><p><strong>version</strong> (<em>str</em>) – desired schema version</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>id
+(ego id) and description</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A pandas dataframe with all ego records with two columns</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.references.MetricDefinitions">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.references.</code><code class="sig-name descname">MetricDefinitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.MetricDefinitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load metric_definitions table</p>
+<p>For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#metric-definitions-json"><span class="std std-ref">metric_definitions.json</span></a></p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.MetricDefinitions.table">
+<code class="sig-name descname">table</code><a class="headerlink" href="#datasetinsights.data.simulation.references.MetricDefinitions.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of metric_definitions records with columns: id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>(id for metric definition), name, description, spec (definition specific
+spec)</p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.MetricDefinitions.FILE_PATTERN">
+<code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/metric_definitions.json'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.MetricDefinitions.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.MetricDefinitions.TABLE_NAME">
+<code class="sig-name descname">TABLE_NAME</code><em class="property"> = 'metric_definitions'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.MetricDefinitions.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.references.MetricDefinitions.get_definition">
+<code class="sig-name descname">get_definition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">def_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.MetricDefinitions.get_definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the metric definition for a given definition id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>def_id</strong> (<em>int</em>) – metric definition id used to filter results</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dictionary containing metric definition</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.references.MetricDefinitions.load_metric_definitions">
+<code class="sig-name descname">load_metric_definitions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.MetricDefinitions.load_metric_definitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load metric definition files.</p>
+<blockquote>
+<div><p><a class="reference internal" href="Synthetic_Dataset_Schema.html#metric-definitions-json"><span class="std std-ref">metric_definitions.json</span></a></p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data_root (str): the root directory of the dataset containing tables
+version (str): desired schema version</p>
+</dd>
+<dt>Returns:</dt><dd><p>A Pandas dataframe with metric definition records.</p>
+</dd>
+</dl>
+<p>a collection of metric_definitions records with columns: id</p>
+</div></blockquote>
+<p>(id for metric definition), name, description, spec (definition specific
+spec)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.references.Sensors">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.references.</code><code class="sig-name descname">Sensors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">'0.0.1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.Sensors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load sensors table</p>
+<p>For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#sensors-json"><span class="std std-ref">sensors.json</span></a></p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.Sensors.table">
+<code class="sig-name descname">table</code><a class="headerlink" href="#datasetinsights.data.simulation.references.Sensors.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>a collection of sensors records with columns:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">'id'</code></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>sensor id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">({camera, lidar, radar, sonar,...} -- Sensor modality), 'description'</code></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.Sensors.FILE_PATTERN">
+<code class="sig-name descname">FILE_PATTERN</code><em class="property"> = '**/sensors.json'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.Sensors.FILE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.references.Sensors.TABLE_NAME">
+<code class="sig-name descname">TABLE_NAME</code><em class="property"> = 'sensors'</em><a class="headerlink" href="#datasetinsights.data.simulation.references.Sensors.TABLE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.references.Sensors.load_sensors">
+<code class="sig-name descname">load_sensors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.references.Sensors.load_sensors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load sensors files.</p>
+<p>For more detail, see schema design here:</p>
+<p><a class="reference internal" href="Synthetic_Dataset_Schema.html#sensors-json"><span class="std std-ref">sensors.json</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_root</strong> (<em>str</em>) – the root directory of the dataset containing</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>tables</dt><dd><p>version (str): desired schema version</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A pandas dataframe with all sensors records  with columns</p>
+</dd>
+</dl>
+<p>‘id’ (sensor id), ‘ego_id’, ‘modality’
+({camera, lidar, radar, sonar,…} – Sensor modality), ‘description’</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.data.simulation.tables">
+<span id="datasetinsights-data-simulation-tables"></span><h2>datasetinsights.data.simulation.tables<a class="headerlink" href="#module-datasetinsights.data.simulation.tables" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.tables.FileType">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.tables.</code><code class="sig-name descname">FileType</code><a class="headerlink" href="#datasetinsights.data.simulation.tables.FileType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.tables.FileType.BINARY">
+<code class="sig-name descname">BINARY</code><em class="property"> = 'binary'</em><a class="headerlink" href="#datasetinsights.data.simulation.tables.FileType.BINARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.tables.FileType.CAPTURE">
+<code class="sig-name descname">CAPTURE</code><em class="property"> = 'capture'</em><a class="headerlink" href="#datasetinsights.data.simulation.tables.FileType.CAPTURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.tables.FileType.METRIC">
+<code class="sig-name descname">METRIC</code><em class="property"> = 'metric'</em><a class="headerlink" href="#datasetinsights.data.simulation.tables.FileType.METRIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="datasetinsights.data.simulation.tables.FileType.REFERENCE">
+<code class="sig-name descname">REFERENCE</code><em class="property"> = 'reference'</em><a class="headerlink" href="#datasetinsights.data.simulation.tables.FileType.REFERENCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="datasetinsights.data.simulation.tables.Table">
+<em class="property">class </em><code class="sig-prename descclassname">datasetinsights.data.simulation.tables.</code><code class="sig-name descname">Table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em>, <em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">filetype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.tables.Table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.tables.Table.file">
+<em class="property">property </em><code class="sig-name descname">file</code><a class="headerlink" href="#datasetinsights.data.simulation.tables.Table.file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.tables.Table.filetype">
+<em class="property">property </em><code class="sig-name descname">filetype</code><a class="headerlink" href="#datasetinsights.data.simulation.tables.Table.filetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="datasetinsights.data.simulation.tables.Table.pattern">
+<em class="property">property </em><code class="sig-name descname">pattern</code><a class="headerlink" href="#datasetinsights.data.simulation.tables.Table.pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.data.simulation.tables.glob">
+<code class="sig-prename descclassname">datasetinsights.data.simulation.tables.</code><code class="sig-name descname">glob</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_root</span></em>, <em class="sig-param"><span class="n">pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.tables.glob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all matching files in a directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_root</strong> (<em>str</em>) – directory containing capture files</p></li>
+<li><p><strong>pattern</strong> (<em>str</em>) – Unix file pattern</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>str</em> – matched filenames in a directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.data.simulation.tables.load_table">
+<code class="sig-prename descclassname">datasetinsights.data.simulation.tables.</code><code class="sig-name descname">load_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_file</span></em>, <em class="sig-param"><span class="n">table_name</span></em>, <em class="sig-param"><span class="n">version</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.tables.load_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load records from json files into a pandas table</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_file</strong> (<em>str</em>) – filename to json.</p></li>
+<li><p><strong>table_name</strong> (<em>str</em>) – table name in the json file to be loaded</p></li>
+<li><p><strong>version</strong> (<em>str</em>) – requested version of this table</p></li>
+<li><p><strong>**kwargs</strong> – arbitrary keyword arguments to be passed to pandas’
+json_normalize method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a pandas dataframe of the loaded table.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="data.simulation.html#data.simulation.validation.VersionError" title="data.simulation.validation.VersionError"><strong>VersionError</strong></a> – If the version in json file does not match the requested</p></li>
+<li><p><strong>version.</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datasetinsights.data.simulation.validation">
+<span id="datasetinsights-data-simulation-validation"></span><h2>datasetinsights.data.simulation.validation<a class="headerlink" href="#module-datasetinsights.data.simulation.validation" title="Permalink to this headline">¶</a></h2>
+<p>Validate Simulation Data</p>
+<dl class="py exception">
+<dt id="datasetinsights.data.simulation.validation.DuplicateRecordError">
+<em class="property">exception </em><code class="sig-prename descclassname">datasetinsights.data.simulation.validation.</code><code class="sig-name descname">DuplicateRecordError</code><a class="headerlink" href="#datasetinsights.data.simulation.validation.DuplicateRecordError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when the definition file has duplicate definition id</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="datasetinsights.data.simulation.validation.NoRecordError">
+<em class="property">exception </em><code class="sig-prename descclassname">datasetinsights.data.simulation.validation.</code><code class="sig-name descname">NoRecordError</code><a class="headerlink" href="#datasetinsights.data.simulation.validation.NoRecordError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when no record is found matching a given definition id</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="datasetinsights.data.simulation.validation.VersionError">
+<em class="property">exception </em><code class="sig-prename descclassname">datasetinsights.data.simulation.validation.</code><code class="sig-name descname">VersionError</code><a class="headerlink" href="#datasetinsights.data.simulation.validation.VersionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when the data file version does not match</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.data.simulation.validation.check_duplicate_records">
+<code class="sig-prename descclassname">datasetinsights.data.simulation.validation.</code><code class="sig-name descname">check_duplicate_records</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">column</span></em>, <em class="sig-param"><span class="n">table_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.validation.check_duplicate_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if table has duplicate records for a given column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>pd.DataFrame</em>) – a pandas dataframe</p></li>
+<li><p><strong>column</strong> (<em>str</em>) – the column where no duplication is allowed</p></li>
+<li><p><strong>table_name</strong> (<em>str</em>) – table name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="data.simulation.html#data.simulation.validation.DuplicateRecordError" title="data.simulation.validation.DuplicateRecordError"><strong>DuplicateRecordError</strong></a> – If duplicate records are found in a column</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.data.simulation.validation.verify_version">
+<code class="sig-prename descclassname">datasetinsights.data.simulation.validation.</code><code class="sig-name descname">verify_version</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">json_data</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.data.simulation.validation.verify_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify json schema version</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_data</strong> (<em>json</em>) – a json object loaded from file.</p></li>
+<li><p><strong>version</strong> (<em>str</em>) – string of the requested version.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="data.simulation.html#data.simulation.validation.VersionError" title="data.simulation.validation.VersionError"><strong>VersionError</strong></a> – If the version in json file does not match the requested</p>
+</dd>
+</dl>
+<p>version.</p>
+</dd></dl>
+
+<span class="target" id="module-datasetinsights.data.simulation"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Unity Technologies
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
