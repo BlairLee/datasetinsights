@@ -190,9 +190,152 @@
 <div class="section" id="module-datasetinsights.constants">
 <span id="datasetinsights-constants"></span><h2>datasetinsights.constants<a class="headerlink" href="#module-datasetinsights.constants" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-datasetinsights">
-<span id="datasetinsights-visual"></span><h2>datasetinsights.visual<a class="headerlink" href="#module-datasetinsights" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-datasetinsights.visual">
+<span id="datasetinsights-visual"></span><h2>datasetinsights.visual<a class="headerlink" href="#module-datasetinsights.visual" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="datasetinsights.visual.bar_plot">
+<code class="sig-prename descclassname">datasetinsights.visual.</code><code class="sig-name descname">bar_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y_title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_tickangle</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.visual.bar_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create plotly bar plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – A pandas dataframe that contain bar plot data.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – The column name of the data in x-axis.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – The column name of the data in y-axis.</p></li>
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of this plot.</p></li>
+<li><p><strong>x_title</strong> (<em>str</em><em>, </em><em>optional</em>) – The x-axis title.</p></li>
+<li><p><strong>y_title</strong> (<em>str</em><em>, </em><em>optional</em>) – The y-axis title.</p></li>
+<li><p><strong>x_tickangle</strong> (<em>int</em><em>, </em><em>optional</em>) – X-axis text tickangle (default: 0)</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method can also take addition keyword arguments that can be passed to
+[plotly.express.bar](<a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.express.bar.html#plotly.express.bar">https://plotly.com/python-api-reference/generated/plotly.express.bar.html#plotly.express.bar</a>) method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span>
+<span class="gp">... </span>                   <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bar_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.visual.decode_segmap">
+<code class="sig-prename descclassname">datasetinsights.visual.</code><code class="sig-name descname">decode_segmap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">labels</span></em>, <em class="sig-param"><span class="n">dataset</span><span class="o">=</span><span class="default_value">'cityscapes'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.visual.decode_segmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode segmentation class labels into a color image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels</strong> (<em>np.array</em>) – an array of size (H, W) with integer grayscale</p></li>
+<li><p><strong>denoting the class label at each spatial location.</strong> (<em>values</em>) – </p></li>
+<li><p><strong>dataset</strong> (<em>str</em>) – dataset name. Defaults to “cityscapes”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A np.array of the resulting decoded color image in (H, W, C).</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>(H, W, C) stands for the (height, width, channel) of the 2D image.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.visual.grid_plot">
+<code class="sig-prename descclassname">datasetinsights.visual.</code><code class="sig-name descname">grid_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">figsize</span><span class="o">=</span><span class="default_value">3, 5</span></em>, <em class="sig-param"><span class="n">img_type</span><span class="o">=</span><span class="default_value">'rgb'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.visual.grid_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot 2D array of images in grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> (<em>list</em>) – 2D array of images.</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em>) – target figure size of each image in the grid.</p></li>
+<li><p><strong>to</strong> (<em>Defaults</em>) – </p></li>
+<li><p><strong>img_type</strong> (<em>string</em>) – image plot type (“rgb”, “gray”). Defaults to “rgb”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>matplotlib figure the combined grid plot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.visual.histogram_plot">
+<code class="sig-prename descclassname">datasetinsights.visual.</code><code class="sig-name descname">histogram_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">max_samples</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y_title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.visual.histogram_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create plotly histogram plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – A pandas dataframe that contain raw data.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – The column name of the raw data for histogram plot.</p></li>
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of this plot.</p></li>
+<li><p><strong>x_title</strong> (<em>str</em><em>, </em><em>optional</em>) – The x-axis title.</p></li>
+<li><p><strong>y_title</strong> (<em>str</em><em>, </em><em>optional</em>) – The y-axis title.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method can also take addition keyword arguments that can be passed to
+[plotly.express.histogram](<a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.express.histogram.html">https://plotly.com/python-api-reference/generated/plotly.express.histogram.html</a>) method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">histogram_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Histnorm plot using probability density:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">histogram_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">histnorm</span><span class="o">=</span><span class="s2">&quot;probability density&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.visual.plot_bboxes">
+<code class="sig-prename descclassname">datasetinsights.visual.</code><code class="sig-name descname">plot_bboxes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em>, <em class="sig-param"><span class="n">boxes</span></em>, <em class="sig-param"><span class="n">colors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">box_line_width</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">font_scale</span><span class="o">=</span><span class="default_value">50</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.visual.plot_bboxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot an image with bounding boxes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>list</em>) – a PIL images.</p></li>
+<li><p><strong>boxes</strong> (<em>list</em>) – a list of BBox2D objects.</p></li>
+<li><p><strong>colors</strong> (<em>list</em>) – a color list for boxes. Defaults to None.</p></li>
+<li><p><strong>colors = None</strong><strong>, </strong><strong>it will randomly assign PIL.COLORS for each box.</strong> (<em>If</em>) – </p></li>
+<li><p><strong>box_line_width</strong> (<em>int</em>) – line width of the bounding boxes. Defaults to 1.</p></li>
+<li><p><strong>font_scale</strong> (<em>int</em>) – how many chars can be filled in the image</p></li>
+<li><p><strong>Defaults to 50.</strong> (<em>horizontally.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a PIL image with bounding boxes drawn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datasetinsights.visual.rotation_plot">
+<code class="sig-prename descclassname">datasetinsights.visual.</code><code class="sig-name descname">rotation_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_samples</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datasetinsights.visual.rotation_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a plotly 3d rotation plot
+:param df: A pandas dataframe that contains the raw data.
+:type df: pd.DataFrame
+:param x: The column name containing x rotations.
+:type x: str
+:param y: The column name containing y rotations.
+:type y: str
+:param z: The column name containing z rotations.
+:type z: str, optional
+:param title: The title of this plot.
+:type title: str, optional</p>
+<p>This method can also take addition keyword arguments that can be passed to
+[plotly.graph_objects.Scatter3d](<a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter3d.html">https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter3d.html</a>) method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A plotly.graph_objects.Figure containing the scatter plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-datasetinsights"></span></div>
 </div>
 
 
